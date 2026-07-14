@@ -1,0 +1,1130 @@
+{
+    "12": {
+        "name": "Robert Dole",
+        "affiliation": "Republican"
+    },
+    "14": {
+        "name": "Thad Cochran",
+        "affiliation": "Republican"
+    },
+    "6": {
+        "name": "Kent Conrad",
+        "affiliation": "Democrat"
+    },
+    "9": {
+        "name": "J. Kerrey",
+        "affiliation": "Democrat"
+    },
+    "1": {
+        "name": "Patrick Leahy",
+        "affiliation": "Democrat"
+    },
+    "10": {
+        "name": "Russel Feingold",
+        "affiliation": "Democrat"
+    },
+    "17": {
+        "name": "Paul Coverdell",
+        "affiliation": "Republican"
+    },
+    "8": {
+        "name": "Max Baucus",
+        "affiliation": "Democrat"
+    },
+    "18": {
+        "name": "Charles Grassley",
+        "affiliation": "Republican"
+    },
+    "16": {
+        "name": "Larry Craig",
+        "affiliation": "Republican"
+    },
+    "11": {
+        "name": "Richard Lugar",
+        "affiliation": "Republican"
+    },
+    "7": {
+        "name": "Thomas Daschle",
+        "affiliation": "Democrat"
+    },
+    "5": {
+        "name": "Tom Harkin",
+        "affiliation": "Democrat"
+    },
+    "4": {
+        "name": "Howell Heflin",
+        "affiliation": "Democrat"
+    },
+    "3": {
+        "name": "David Boren",
+        "affiliation": "Democrat"
+    },
+    "13": {
+        "name": "Jesse Helms",
+        "affiliation": "Republican"
+    },
+    "15": {
+        "name": "Mitch McConnell",
+        "affiliation": "Republican"
+    },
+    "2": {
+        "name": "David Pryor",
+        "affiliation": "Democrat"
+    },
+    "30": {
+        "name": "Patty Murray",
+        "affiliation": "Democrat"
+    },
+    "39": {
+        "name": "Christopher Bond",
+        "affiliation": "Republican"
+    },
+    "22": {
+        "name": "J. Johnston",
+        "affiliation": "Democrat"
+    },
+    "24": {
+        "name": "Dennis DeConcini",
+        "affiliation": "Democrat"
+    },
+    "19": {
+        "name": "Robert Byrd",
+        "affiliation": "Democrat"
+    },
+    "38": {
+        "name": "Phil Gramm",
+        "affiliation": "Republican"
+    },
+    "36": {
+        "name": "Pete Domenici",
+        "affiliation": "Republican"
+    },
+    "41": {
+        "name": "Connie Mack",
+        "affiliation": "Republican"
+    },
+    "37": {
+        "name": "Don Nickles",
+        "affiliation": "Republican"
+    },
+    "33": {
+        "name": "Ted Stevens",
+        "affiliation": "Republican"
+    },
+    "29": {
+        "name": "Herbert Kohl",
+        "affiliation": "Democrat"
+    },
+    "31": {
+        "name": "Dianne Feinstein",
+        "affiliation": "Democrat"
+    },
+    "42": {
+        "name": "Conrad Burns",
+        "affiliation": "Republican"
+    },
+    "23": {
+        "name": "Jim Sasser",
+        "affiliation": "Democrat"
+    },
+    "28": {
+        "name": "Harry Reid",
+        "affiliation": "Democrat"
+    },
+    "20": {
+        "name": "Daniel Inouye",
+        "affiliation": "Democrat"
+    },
+    "27": {
+        "name": "Barbara Mikulski",
+        "affiliation": "Democrat"
+    },
+    "35": {
+        "name": "Arlen Specter",
+        "affiliation": "Republican"
+    },
+    "26": {
+        "name": "Frank Lautenberg",
+        "affiliation": "Democrat"
+    },
+    "34": {
+        "name": "Alfonso D'Amato",
+        "affiliation": "Republican"
+    },
+    "25": {
+        "name": "Dale Bumpers",
+        "affiliation": "Democrat"
+    },
+    "40": {
+        "name": "Slade Gorton",
+        "affiliation": "Republican"
+    },
+    "21": {
+        "name": "Ernest Hollings",
+        "affiliation": "Democrat"
+    },
+    "32": {
+        "name": "Mark Hatfield",
+        "affiliation": "Republican"
+    },
+    "55": {
+        "name": "William Cohen",
+        "affiliation": "Republican"
+    },
+    "59": {
+        "name": "Robert Smith",
+        "affiliation": "Republican"
+    },
+    "52": {
+        "name": "Joseph Lieberman",
+        "affiliation": "Democrat"
+    },
+    "43": {
+        "name": "Sam Nunn",
+        "affiliation": "Democrat"
+    },
+    "53": {
+        "name": "Strom Thurmond",
+        "affiliation": "Republican"
+    },
+    "51": {
+        "name": "Charles Robb",
+        "affiliation": "Democrat"
+    },
+    "56": {
+        "name": "John McCain",
+        "affiliation": "Republican"
+    },
+    "58": {
+        "name": "Dan Coats",
+        "affiliation": "Republican"
+    },
+    "50": {
+        "name": "Bob Graham",
+        "affiliation": "Democrat"
+    },
+    "61": {
+        "name": "Lauch Faircloth",
+        "affiliation": "Republican"
+    },
+    "60": {
+        "name": "Dirk Kempthorne",
+        "affiliation": "Republican"
+    },
+    "46": {
+        "name": "Edward Kennedy",
+        "affiliation": "Democrat"
+    },
+    "57": {
+        "name": "Trent Lott",
+        "affiliation": "Republican"
+    },
+    "44": {
+        "name": "J. Exon",
+        "affiliation": "Democrat"
+    },
+    "48": {
+        "name": "John Glenn",
+        "affiliation": "Democrat"
+    },
+    "62": {
+        "name": "Kay Hutchison",
+        "affiliation": "Republican"
+    },
+    "45": {
+        "name": "Carl Levin",
+        "affiliation": "Democrat"
+    },
+    "47": {
+        "name": "Jeff Bingaman",
+        "affiliation": "Democrat"
+    },
+    "54": {
+        "name": "John Warner",
+        "affiliation": "Republican"
+    },
+    "49": {
+        "name": "Richard Shelby",
+        "affiliation": "Democrat"
+    },
+    "66": {
+        "name": "John Kerry",
+        "affiliation": "Democrat"
+    },
+    "72": {
+        "name": "William Roth",
+        "affiliation": "Republican"
+    },
+    "70": {
+        "name": "Carol Moseley-Braun",
+        "affiliation": "Democrat"
+    },
+    "64": {
+        "name": "Paul Sarbanes",
+        "affiliation": "Democrat"
+    },
+    "65": {
+        "name": "Christopher Dodd",
+        "affiliation": "Democrat"
+    },
+    "67": {
+        "name": "Richard Bryan",
+        "affiliation": "Democrat"
+    },
+    "68": {
+        "name": "Barbara Boxer",
+        "affiliation": "Democrat"
+    },
+    "71": {
+        "name": "Robert Bennet",
+        "affiliation": "Republican"
+    },
+    "63": {
+        "name": "Donald Riegle",
+        "affiliation": "Democrat"
+    },
+    "69": {
+        "name": "Ben Campbell",
+        "affiliation": "Democrat"
+    },
+    "74": {
+        "name": "Hank Brown",
+        "affiliation": "Republican"
+    },
+    "73": {
+        "name": "Paul Simon",
+        "affiliation": "Democrat"
+    },
+    "75": {
+        "name": "Judd Gregg",
+        "affiliation": "Republican"
+    },
+    "83": {
+        "name": "Larry Pressler",
+        "affiliation": "Republican"
+    },
+    "78": {
+        "name": "Lloyd Bentsen",
+        "affiliation": "Democrat"
+    },
+    "80": {
+        "name": "Byron Dorgan",
+        "affiliation": "Democrat"
+    },
+    "76": {
+        "name": "Wendell Ford",
+        "affiliation": "Democrat"
+    },
+    "82": {
+        "name": "Bob Packwood",
+        "affiliation": "Republican"
+    },
+    "81": {
+        "name": "John Danforth",
+        "affiliation": "Republican"
+    },
+    "84": {
+        "name": "Bob Krueger",
+        "affiliation": "Democrat"
+    },
+    "77": {
+        "name": "John Rockefeller",
+        "affiliation": "Democrat"
+    },
+    "79": {
+        "name": "John Breaux",
+        "affiliation": "Democrat"
+    },
+    "86": {
+        "name": "Daniel Akaka",
+        "affiliation": "Democrat"
+    },
+    "85": {
+        "name": "Bill Bradley",
+        "affiliation": "Democrat"
+    },
+    "88": {
+        "name": "Harlan Mathews",
+        "affiliation": "Democrat"
+    },
+    "87": {
+        "name": "Paul Wellstone",
+        "affiliation": "Democrat"
+    },
+    "89": {
+        "name": "Malcolm Wallop",
+        "affiliation": "Republican"
+    },
+    "90": {
+        "name": "Frank Murkowski",
+        "affiliation": "Republican"
+    },
+    "92": {
+        "name": "George Mitchell",
+        "affiliation": "Democrat"
+    },
+    "93": {
+        "name": "Howard Metzenbaum",
+        "affiliation": "Democrat"
+    },
+    "94": {
+        "name": "Harris Wofford",
+        "affiliation": "Democrat"
+    },
+    "95": {
+        "name": "John Chafee",
+        "affiliation": "Republican"
+    },
+    "96": {
+        "name": "Alan Simpson",
+        "affiliation": "Republican"
+    },
+    "97": {
+        "name": "Dave Durenberger",
+        "affiliation": "Republican"
+    },
+    "91": {
+        "name": "Daniel Moynihan",
+        "affiliation": "Democrat"
+    },
+    "98": {
+        "name": "Orrin Hatch",
+        "affiliation": "Republican"
+    },
+    "99": {
+        "name": "Claiborne Pell",
+        "affiliation": "Democrat"
+    },
+    "102": {
+        "name": "James Jeffords",
+        "affiliation": "Republican"
+    },
+    "101": {
+        "name": "Nancy Kassebaum",
+        "affiliation": "Republican"
+    },
+    "100": {
+        "name": "Joseph Biden",
+        "affiliation": "Democrat"
+    },
+    "103": {
+        "name": "Rick Santorum",
+        "affiliation": "Republican"
+    },
+    "104": {
+        "name": "Ben Campbell",
+        "affiliation": "Republican"
+    },
+    "105": {
+        "name": "Richard Shelby",
+        "affiliation": "Republican"
+    },
+    "107": {
+        "name": "Sheila Frahm",
+        "affiliation": "Republican"
+    },
+    "106": {
+        "name": "James Inhofe",
+        "affiliation": "Republican"
+    },
+    "108": {
+        "name": "Rod Grams",
+        "affiliation": "Republican"
+    },
+    "109": {
+        "name": "William Frist",
+        "affiliation": "Republican"
+    },
+    "111": {
+        "name": "Spencer Abraham",
+        "affiliation": "Republican"
+    },
+    "112": {
+        "name": "Ron Wyden",
+        "affiliation": "Democrat"
+    },
+    "110": {
+        "name": "Olympia Snowe",
+        "affiliation": "Republican"
+    },
+    "113": {
+        "name": "John Ashcroft",
+        "affiliation": "Republican"
+    },
+    "115": {
+        "name": "Jon Kyl",
+        "affiliation": "Republican"
+    },
+    "114": {
+        "name": "Craig Thomas",
+        "affiliation": "Republican"
+    },
+    "116": {
+        "name": "Fred Thompson",
+        "affiliation": "Republican"
+    },
+    "117": {
+        "name": "Michael DeWine",
+        "affiliation": "Republican"
+    },
+    "120": {
+        "name": "Michael DeWine",
+        "affiliation": "Democrat"
+    },
+    "122": {
+        "name": "James Inhofe",
+        "affiliation": "Democrat"
+    },
+    "124": {
+        "name": "Connie Mack",
+        "affiliation": "Democrat"
+    },
+    "123": {
+        "name": "Kay Hutchison",
+        "affiliation": "Democrat"
+    },
+    "133": {
+        "name": "Charles Robb",
+        "affiliation": "Republican"
+    },
+    "130": {
+        "name": "John Kerry",
+        "affiliation": "Republican"
+    },
+    "121": {
+        "name": "Jon Kyl",
+        "affiliation": "Democrat"
+    },
+    "131": {
+        "name": "Max Baucus",
+        "affiliation": "Republican"
+    },
+    "126": {
+        "name": "J. Kerrey",
+        "affiliation": "Republican"
+    },
+    "118": {
+        "name": "Arlen Specter",
+        "affiliation": "Democrat"
+    },
+    "125": {
+        "name": "William Cohen",
+        "affiliation": "Democrat"
+    },
+    "129": {
+        "name": "Bob Graham",
+        "affiliation": "Republican"
+    },
+    "132": {
+        "name": "J. Johnston",
+        "affiliation": "Republican"
+    },
+    "119": {
+        "name": "Richard Lugar",
+        "affiliation": "Democrat"
+    },
+    "128": {
+        "name": "Richard Bryan",
+        "affiliation": "Republican"
+    },
+    "127": {
+        "name": "John Glenn",
+        "affiliation": "Republican"
+    },
+    "135": {
+        "name": "Mary Landrieu",
+        "affiliation": "Democrat"
+    },
+    "134": {
+        "name": "Pat Roberts",
+        "affiliation": "Republican"
+    },
+    "136": {
+        "name": "Tim Johnson",
+        "affiliation": "Democrat"
+    },
+    "137": {
+        "name": "Max Cleland",
+        "affiliation": "Democrat"
+    },
+    "141": {
+        "name": "Jack Reed",
+        "affiliation": "Democrat"
+    },
+    "138": {
+        "name": "Wayne Allard",
+        "affiliation": "Republican"
+    },
+    "140": {
+        "name": "Chuck Hagel",
+        "affiliation": "Republican"
+    },
+    "139": {
+        "name": "Michael Enzi",
+        "affiliation": "Republican"
+    },
+    "143": {
+        "name": "Richard Durbin",
+        "affiliation": "Democrat"
+    },
+    "142": {
+        "name": "Gordon Smith",
+        "affiliation": "Republican"
+    },
+    "144": {
+        "name": "Samuel Brownback",
+        "affiliation": "Republican"
+    },
+    "145": {
+        "name": "Tim Hutchinson",
+        "affiliation": "Republican"
+    },
+    "146": {
+        "name": "Jeff Sessions",
+        "affiliation": "Republican"
+    },
+    "148": {
+        "name": "Robert Torricelli",
+        "affiliation": "Democrat"
+    },
+    "147": {
+        "name": "Susan Collins",
+        "affiliation": "Republican"
+    },
+    "150": {
+        "name": "Blanche Lincoln",
+        "affiliation": "Democrat"
+    },
+    "149": {
+        "name": "Peter Fitzgerald",
+        "affiliation": "Republican"
+    },
+    "151": {
+        "name": "George Voinovich",
+        "affiliation": "Republican"
+    },
+    "154": {
+        "name": "Charles Schumer",
+        "affiliation": "Democrat"
+    },
+    "152": {
+        "name": "James Bunning",
+        "affiliation": "Republican"
+    },
+    "153": {
+        "name": "Michael Crapo",
+        "affiliation": "Republican"
+    },
+    "155": {
+        "name": "Evan Bayh",
+        "affiliation": "Democrat"
+    },
+    "156": {
+        "name": "John Edwards",
+        "affiliation": "Democrat"
+    },
+    "157": {
+        "name": "Lincoln Chafee",
+        "affiliation": "Republican"
+    },
+    "160": {
+        "name": "Earl Nelson",
+        "affiliation": "Democrat"
+    },
+    "161": {
+        "name": "Mark Dayton",
+        "affiliation": "Democrat"
+    },
+    "159": {
+        "name": "Deborah Stabenow",
+        "affiliation": "Democrat"
+    },
+    "158": {
+        "name": "Zell Miller",
+        "affiliation": "Democrat"
+    },
+    "162": {
+        "name": "Clarence Nelson",
+        "affiliation": "Democrat"
+    },
+    "163": {
+        "name": "Jean Carnahan",
+        "affiliation": "Democrat"
+    },
+    "166": {
+        "name": "John Ensign",
+        "affiliation": "Republican"
+    },
+    "164": {
+        "name": "Thomas Carper",
+        "affiliation": "Democrat"
+    },
+    "165": {
+        "name": "Jon Corzine",
+        "affiliation": "Democrat"
+    },
+    "167": {
+        "name": "Hillary Clinton",
+        "affiliation": "Democrat"
+    },
+    "168": {
+        "name": "George Allen",
+        "affiliation": "Republican"
+    },
+    "169": {
+        "name": "Maria Cantwell",
+        "affiliation": "Democrat"
+    },
+    "170": {
+        "name": "James Jeffords",
+        "affiliation": "Democrat"
+    },
+    "172": {
+        "name": "Norm Coleman",
+        "affiliation": "Republican"
+    },
+    "171": {
+        "name": "Saxby Chambliss",
+        "affiliation": "Republican"
+    },
+    "174": {
+        "name": "Elizabeth Dole",
+        "affiliation": "Republican"
+    },
+    "173": {
+        "name": "James Talent",
+        "affiliation": "Republican"
+    },
+    "175": {
+        "name": "Lindsey Graham",
+        "affiliation": "Republican"
+    },
+    "177": {
+        "name": "Mark Pryor",
+        "affiliation": "Democrat"
+    },
+    "176": {
+        "name": "John Cornyn",
+        "affiliation": "Republican"
+    },
+    "178": {
+        "name": "John Sununu",
+        "affiliation": "Republican"
+    },
+    "179": {
+        "name": "Lamar Alexander",
+        "affiliation": "Republican"
+    },
+    "180": {
+        "name": "Lisa Murkowski",
+        "affiliation": "Republican"
+    },
+    "181": {
+        "name": "Kenneth Salazar",
+        "affiliation": "Democrat"
+    },
+    "182": {
+        "name": "John Thune",
+        "affiliation": "Republican"
+    },
+    "183": {
+        "name": "Melquiades Martinez",
+        "affiliation": "Republican"
+    },
+    "184": {
+        "name": "Robert Menendez",
+        "affiliation": "Democrat"
+    },
+    "185": {
+        "name": "James DeMint",
+        "affiliation": "Republican"
+    },
+    "186": {
+        "name": "David Vitter",
+        "affiliation": "Republican"
+    },
+    "187": {
+        "name": "Richard Burr",
+        "affiliation": "Republican"
+    },
+    "188": {
+        "name": "Johnny Isakson",
+        "affiliation": "Republican"
+    },
+    "189": {
+        "name": "Barack Obama",
+        "affiliation": "Democrat"
+    },
+    "190": {
+        "name": "Thomas Coburn",
+        "affiliation": "Republican"
+    },
+    "192": {
+        "name": "Robert Casey",
+        "affiliation": "Democrat"
+    },
+    "191": {
+        "name": "Sherrod Brown",
+        "affiliation": "Democrat"
+    },
+    "193": {
+        "name": "Amy Klobuchar",
+        "affiliation": "Democrat"
+    },
+    "195": {
+        "name": "Claire McCaskill",
+        "affiliation": "Democrat"
+    },
+    "197": {
+        "name": "Roger Wicker",
+        "affiliation": "Republican"
+    },
+    "196": {
+        "name": "Bob Corker",
+        "affiliation": "Republican"
+    },
+    "194": {
+        "name": "Jim Webb",
+        "affiliation": "Democrat"
+    },
+    "198": {
+        "name": "Jon Tester",
+        "affiliation": "Democrat"
+    },
+    "200": {
+        "name": "Bernard Sanders",
+        "affiliation": "Democrat"
+    },
+    "201": {
+        "name": "Sheldon Whitehouse",
+        "affiliation": "Democrat"
+    },
+    "199": {
+        "name": "Benjamin Cardin",
+        "affiliation": "Democrat"
+    },
+    "202": {
+        "name": "John Barrasso",
+        "affiliation": "Republican"
+    },
+    "205": {
+        "name": "Mike Johanns",
+        "affiliation": "Republican"
+    },
+    "204": {
+        "name": "Kirsten Gillibrand",
+        "affiliation": "Democrat"
+    },
+    "203": {
+        "name": "Michael Bennet",
+        "affiliation": "Democrat"
+    },
+    "206": {
+        "name": "Mark Udall",
+        "affiliation": "Democrat"
+    },
+    "208": {
+        "name": "Mark Begich",
+        "affiliation": "Democrat"
+    },
+    "211": {
+        "name": "George LeMieux",
+        "affiliation": "Republican"
+    },
+    "210": {
+        "name": "Paul Kirk",
+        "affiliation": "Democrat"
+    },
+    "209": {
+        "name": "Roland Burris",
+        "affiliation": "Democrat"
+    },
+    "207": {
+        "name": "Kay Hagan",
+        "affiliation": "Democrat"
+    },
+    "213": {
+        "name": "Jeff Merkley",
+        "affiliation": "Democrat"
+    },
+    "212": {
+        "name": "Mark Warner",
+        "affiliation": "Democrat"
+    },
+    "214": {
+        "name": "Tom Udall",
+        "affiliation": "Democrat"
+    },
+    "216": {
+        "name": "James Risch",
+        "affiliation": "Republican"
+    },
+    "215": {
+        "name": "Jeanne Shaheen",
+        "affiliation": "Democrat"
+    },
+    "217": {
+        "name": "Ted Kaufman",
+        "affiliation": "Democrat"
+    },
+    "218": {
+        "name": "Al Franken",
+        "affiliation": "Democrat"
+    },
+    "219": {
+        "name": "John Boozman",
+        "affiliation": "Republican"
+    },
+    "220": {
+        "name": "John Hoeven",
+        "affiliation": "Democrat"
+    },
+    "224": {
+        "name": "John Hoeven",
+        "affiliation": "Republican"
+    },
+    "221": {
+        "name": "Mark Kirk",
+        "affiliation": "Republican"
+    },
+    "225": {
+        "name": "Ron Johnson",
+        "affiliation": "Republican"
+    },
+    "222": {
+        "name": "Roy Blunt",
+        "affiliation": "Republican"
+    },
+    "223": {
+        "name": "Jerry Moran",
+        "affiliation": "Republican"
+    },
+    "230": {
+        "name": "Kelly Ayotte",
+        "affiliation": "Republican"
+    },
+    "229": {
+        "name": "Rob Portman",
+        "affiliation": "Republican"
+    },
+    "226": {
+        "name": "Joe Manchin",
+        "affiliation": "Democrat"
+    },
+    "227": {
+        "name": "Richard Blumenthal",
+        "affiliation": "Democrat"
+    },
+    "228": {
+        "name": "Scott Brown",
+        "affiliation": "Republican"
+    },
+    "231": {
+        "name": "Patrick Toomey",
+        "affiliation": "Republican"
+    },
+    "232": {
+        "name": "Christopher Coons",
+        "affiliation": "Democrat"
+    },
+    "233": {
+        "name": "Marco Rubio",
+        "affiliation": "Republican"
+    },
+    "234": {
+        "name": "Dean Heller",
+        "affiliation": "Republican"
+    },
+    "235": {
+        "name": "Mike Lee",
+        "affiliation": "Republican"
+    },
+    "236": {
+        "name": "Rand Paul",
+        "affiliation": "Republican"
+    },
+    "237": {
+        "name": "Tim Johnson",
+        "affiliation": "Republican"
+    },
+    "238": {
+        "name": "Joe Donnelly",
+        "affiliation": "Democrat"
+    },
+    "239": {
+        "name": "Heidi Heitkamp",
+        "affiliation": "Democrat"
+    },
+    "241": {
+        "name": "John Walsh",
+        "affiliation": "Democrat"
+    },
+    "240": {
+        "name": "William Cowan",
+        "affiliation": "Democrat"
+    },
+    "242": {
+        "name": "John Boozman",
+        "affiliation": "Republican"
+    },
+    "248": {
+        "name": "Ted Cruz",
+        "affiliation": "Republican"
+    },
+    "244": {
+        "name": "Timothy Kaine",
+        "affiliation": "Democrat"
+    },
+    "246": {
+        "name": "Deb Fischer",
+        "affiliation": "Republican"
+    },
+    "247": {
+        "name": "Roy Blunt",
+        "affiliation": "Republican"
+    },
+    "243": {
+        "name": "Mazie Hirono",
+        "affiliation": "Democrat"
+    },
+    "245": {
+        "name": "Angus King",
+        "affiliation": "Democrat"
+    },
+    "249": {
+        "name": "Elizabeth Warren",
+        "affiliation": "Democrat"
+    },
+    "250": {
+        "name": "Tammy Baldwin",
+        "affiliation": "Democrat"
+    },
+    "253": {
+        "name": "Edward Markey",
+        "affiliation": "Democrat"
+    },
+    "252": {
+        "name": "Martin Heinrich",
+        "affiliation": "Democrat"
+    },
+    "254": {
+        "name": "Cory Booker",
+        "affiliation": "Democrat"
+    },
+    "255": {
+        "name": "Tim Scott",
+        "affiliation": "Republican"
+    },
+    "251": {
+        "name": "Brian Schatz",
+        "affiliation": "Democrat"
+    },
+    "256": {
+        "name": "Jeffrey Chiesa",
+        "affiliation": "Republican"
+    },
+    "257": {
+        "name": "Jeff Flake",
+        "affiliation": "Republican"
+    },
+    "258": {
+        "name": "Christopher Murphy",
+        "affiliation": "Democrat"
+    },
+    "259": {
+        "name": "Tammy Baldwin",
+        "affiliation": "Democrat"
+    },
+    "261": {
+        "name": "Joni Ernst",
+        "affiliation": "Republican"
+    },
+    "263": {
+        "name": "Ben Sasse",
+        "affiliation": "Republican"
+    },
+    "260": {
+        "name": "David Perdue",
+        "affiliation": "Republican"
+    },
+    "262": {
+        "name": "Thom Tillis",
+        "affiliation": "Republican"
+    },
+    "265": {
+        "name": "Bill Cassidy",
+        "affiliation": "Republican"
+    },
+    "266": {
+        "name": "James Lankford",
+        "affiliation": "Republican"
+    },
+    "264": {
+        "name": "Shelley Capito",
+        "affiliation": "Republican"
+    },
+    "267": {
+        "name": "Steve Daines",
+        "affiliation": "Republican"
+    },
+    "269": {
+        "name": "Mike Rounds",
+        "affiliation": "Republican"
+    },
+    "268": {
+        "name": "Tom Cotton",
+        "affiliation": "Republican"
+    },
+    "270": {
+        "name": "Daniel Sullivan",
+        "affiliation": "Republican"
+    },
+    "271": {
+        "name": "Gary Peters",
+        "affiliation": "Democrat"
+    },
+    "273": {
+        "name": "Cory Gardner",
+        "affiliation": "Republican"
+    },
+    "272": {
+        "name": "Jerry Moran",
+        "affiliation": "Republican"
+    },
+    "274": {
+        "name": "Cory Booker",
+        "affiliation": "Democrat"
+    },
+    "275": {
+        "name": "Chris Van Hollen",
+        "affiliation": "Democrat"
+    },
+    "276": {
+        "name": "Luther Strange",
+        "affiliation": "Republican"
+    },
+    "277": {
+        "name": "John Kennedy",
+        "affiliation": "Republican"
+    },
+    "278": {
+        "name": "Catherine Cortez Masto",
+        "affiliation": "Democrat"
+    },
+    "279": {
+        "name": "Kamala Harris",
+        "affiliation": "Democrat"
+    },
+    "282": {
+        "name": "Todd Young",
+        "affiliation": "Republican"
+    },
+    "280": {
+        "name": "Tammy Duckworth",
+        "affiliation": "Democrat"
+    },
+    "281": {
+        "name": "Maggie Hassan",
+        "affiliation": "Democrat"
+    }
+}

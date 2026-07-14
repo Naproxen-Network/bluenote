@@ -1,0 +1,482 @@
+[
+  {
+    "seq": 1,
+    "committeeMemberId": 109,
+    "billsUserId": 236,
+    "action": "CHAIR",
+    "committeeIndex": 50,
+    "weightDelta": 0.454
+  },
+  {
+    "seq": 2,
+    "committeeMemberId": 72,
+    "billsUserId": 79,
+    "action": "JOIN",
+    "committeeIndex": 46,
+    "weightDelta": 0.6
+  },
+  {
+    "seq": 3,
+    "committeeMemberId": 154,
+    "billsUserId": 263,
+    "action": "CHAIR",
+    "committeeIndex": 215,
+    "weightDelta": 0.909
+  },
+  {
+    "seq": 4,
+    "committeeMemberId": 136,
+    "billsUserId": 255,
+    "action": "CHAIR",
+    "committeeIndex": 184,
+    "weightDelta": 0.299
+  },
+  {
+    "seq": 5,
+    "committeeMemberId": 113,
+    "billsUserId": 234,
+    "action": "JOIN",
+    "committeeIndex": 313,
+    "weightDelta": 0.586
+  },
+  {
+    "seq": 6,
+    "committeeMemberId": 134,
+    "billsUserId": 251,
+    "action": "LEAVE",
+    "committeeIndex": 275,
+    "weightDelta": 0.469
+  },
+  {
+    "seq": 7,
+    "committeeMemberId": 16,
+    "billsUserId": 213,
+    "action": "JOIN",
+    "committeeIndex": 117,
+    "weightDelta": 0.499
+  },
+  {
+    "seq": 8,
+    "committeeMemberId": 93,
+    "billsUserId": 44,
+    "action": "CHAIR",
+    "committeeIndex": 89,
+    "weightDelta": 0.898
+  },
+  {
+    "seq": 9,
+    "committeeMemberId": 154,
+    "billsUserId": 263,
+    "action": "LEAVE",
+    "committeeIndex": 174,
+    "weightDelta": 0.173
+  },
+  {
+    "seq": 10,
+    "committeeMemberId": 55,
+    "billsUserId": 146,
+    "action": "JOIN",
+    "committeeIndex": 249,
+    "weightDelta": 0.996
+  },
+  {
+    "seq": 11,
+    "committeeMemberId": 77,
+    "billsUserId": 180,
+    "action": "CHAIR",
+    "committeeIndex": 42,
+    "weightDelta": 0.47
+  },
+  {
+    "seq": 12,
+    "committeeMemberId": 70,
+    "billsUserId": 219,
+    "action": "LEAVE",
+    "committeeIndex": 15,
+    "weightDelta": 0.473
+  },
+  {
+    "seq": 13,
+    "committeeMemberId": 86,
+    "billsUserId": 210,
+    "action": "JOIN",
+    "committeeIndex": 74,
+    "weightDelta": 0.463
+  },
+  {
+    "seq": 14,
+    "committeeMemberId": 144,
+    "billsUserId": 253,
+    "action": "LEAVE",
+    "committeeIndex": 94,
+    "weightDelta": 0.611
+  },
+  {
+    "seq": 15,
+    "committeeMemberId": 137,
+    "billsUserId": 260,
+    "action": "JOIN",
+    "committeeIndex": 122,
+    "weightDelta": 0.329
+  },
+  {
+    "seq": 16,
+    "committeeMemberId": 48,
+    "billsUserId": 110,
+    "action": "LEAVE",
+    "committeeIndex": 249,
+    "weightDelta": 0.571
+  },
+  {
+    "seq": 17,
+    "committeeMemberId": 70,
+    "billsUserId": 219,
+    "action": "CHAIR",
+    "committeeIndex": 199,
+    "weightDelta": 0.591
+  },
+  {
+    "seq": 18,
+    "committeeMemberId": 134,
+    "billsUserId": 251,
+    "action": "CHAIR",
+    "committeeIndex": 218,
+    "weightDelta": 0.272
+  },
+  {
+    "seq": 19,
+    "committeeMemberId": 31,
+    "billsUserId": 227,
+    "action": "CHAIR",
+    "committeeIndex": 202,
+    "weightDelta": 0.738
+  },
+  {
+    "seq": 20,
+    "committeeMemberId": 93,
+    "billsUserId": 44,
+    "action": "LEAVE",
+    "committeeIndex": 109,
+    "weightDelta": 0.191
+  },
+  {
+    "seq": 21,
+    "committeeMemberId": 63,
+    "billsUserId": 113,
+    "action": "JOIN",
+    "committeeIndex": 236,
+    "weightDelta": 0.796
+  },
+  {
+    "seq": 22,
+    "committeeMemberId": 149,
+    "billsUserId": 265,
+    "action": "CHAIR",
+    "committeeIndex": 91,
+    "weightDelta": 0.608
+  },
+  {
+    "seq": 23,
+    "committeeMemberId": 89,
+    "billsUserId": 124,
+    "action": "LEAVE",
+    "committeeIndex": 305,
+    "weightDelta": 0.425
+  },
+  {
+    "seq": 24,
+    "committeeMemberId": 144,
+    "billsUserId": 253,
+    "action": "CHAIR",
+    "committeeIndex": 231,
+    "weightDelta": 0.53
+  },
+  {
+    "seq": 25,
+    "committeeMemberId": 46,
+    "billsUserId": 24,
+    "action": "LEAVE",
+    "committeeIndex": 199,
+    "weightDelta": 0.391
+  },
+  {
+    "seq": 26,
+    "committeeMemberId": 90,
+    "billsUserId": 293,
+    "action": "JOIN",
+    "committeeIndex": 22,
+    "weightDelta": 0.285
+  },
+  {
+    "seq": 27,
+    "committeeMemberId": 32,
+    "billsUserId": 35,
+    "action": "LEAVE",
+    "committeeIndex": 136,
+    "weightDelta": 0.449
+  },
+  {
+    "seq": 28,
+    "committeeMemberId": 12,
+    "billsUserId": 290,
+    "action": "JOIN",
+    "committeeIndex": 42,
+    "weightDelta": 0.587
+  },
+  {
+    "seq": 29,
+    "committeeMemberId": 112,
+    "billsUserId": 246,
+    "action": "CHAIR",
+    "committeeIndex": 201,
+    "weightDelta": 0.879
+  },
+  {
+    "seq": 30,
+    "committeeMemberId": 57,
+    "billsUserId": 202,
+    "action": "CHAIR",
+    "committeeIndex": 268,
+    "weightDelta": 0.246
+  },
+  {
+    "seq": 31,
+    "committeeMemberId": 21,
+    "billsUserId": 76,
+    "action": "LEAVE",
+    "committeeIndex": 306,
+    "weightDelta": 0.241
+  },
+  {
+    "seq": 32,
+    "committeeMemberId": 169,
+    "billsUserId": 280,
+    "action": "CHAIR",
+    "committeeIndex": 20,
+    "weightDelta": 0.972
+  },
+  {
+    "seq": 33,
+    "committeeMemberId": 10,
+    "billsUserId": 226,
+    "action": "CHAIR",
+    "committeeIndex": 279,
+    "weightDelta": 0.481
+  },
+  {
+    "seq": 34,
+    "committeeMemberId": 90,
+    "billsUserId": 293,
+    "action": "CHAIR",
+    "committeeIndex": 139,
+    "weightDelta": 0.512
+  },
+  {
+    "seq": 35,
+    "committeeMemberId": 160,
+    "billsUserId": 282,
+    "action": "CHAIR",
+    "committeeIndex": 46,
+    "weightDelta": 0.176
+  },
+  {
+    "seq": 36,
+    "committeeMemberId": 103,
+    "billsUserId": 240,
+    "action": "JOIN",
+    "committeeIndex": 134,
+    "weightDelta": 0.241
+  },
+  {
+    "seq": 37,
+    "committeeMemberId": 111,
+    "billsUserId": 233,
+    "action": "CHAIR",
+    "committeeIndex": 45,
+    "weightDelta": 0.748
+  },
+  {
+    "seq": 38,
+    "committeeMemberId": 13,
+    "billsUserId": 95,
+    "action": "LEAVE",
+    "committeeIndex": 252,
+    "weightDelta": 0.696
+  },
+  {
+    "seq": 39,
+    "committeeMemberId": 63,
+    "billsUserId": 113,
+    "action": "JOIN",
+    "committeeIndex": 130,
+    "weightDelta": 0.235
+  },
+  {
+    "seq": 40,
+    "committeeMemberId": 54,
+    "billsUserId": 147,
+    "action": "JOIN",
+    "committeeIndex": 50,
+    "weightDelta": 0.149
+  },
+  {
+    "seq": 41,
+    "committeeMemberId": 57,
+    "billsUserId": 202,
+    "action": "JOIN",
+    "committeeIndex": 289,
+    "weightDelta": 0.739
+  },
+  {
+    "seq": 42,
+    "committeeMemberId": 103,
+    "billsUserId": 240,
+    "action": "JOIN",
+    "committeeIndex": 232,
+    "weightDelta": 0.443
+  },
+  {
+    "seq": 43,
+    "committeeMemberId": 77,
+    "billsUserId": 180,
+    "action": "JOIN",
+    "committeeIndex": 181,
+    "weightDelta": 0.149
+  },
+  {
+    "seq": 44,
+    "committeeMemberId": 172,
+    "billsUserId": 287,
+    "action": "LEAVE",
+    "committeeIndex": 165,
+    "weightDelta": 0.525
+  },
+  {
+    "seq": 45,
+    "committeeMemberId": 34,
+    "billsUserId": 167,
+    "action": "LEAVE",
+    "committeeIndex": 229,
+    "weightDelta": 0.778
+  },
+  {
+    "seq": 46,
+    "committeeMemberId": 160,
+    "billsUserId": 282,
+    "action": "CHAIR",
+    "committeeIndex": 219,
+    "weightDelta": 0.51
+  },
+  {
+    "seq": 47,
+    "committeeMemberId": 112,
+    "billsUserId": 246,
+    "action": "CHAIR",
+    "committeeIndex": 252,
+    "weightDelta": 0.18
+  },
+  {
+    "seq": 48,
+    "committeeMemberId": 78,
+    "billsUserId": 94,
+    "action": "LEAVE",
+    "committeeIndex": 192,
+    "weightDelta": 0.333
+  },
+  {
+    "seq": 49,
+    "committeeMemberId": 6,
+    "billsUserId": 188,
+    "action": "LEAVE",
+    "committeeIndex": 81,
+    "weightDelta": 0.289
+  },
+  {
+    "seq": 50,
+    "committeeMemberId": 179,
+    "billsUserId": 288,
+    "action": "LEAVE",
+    "committeeIndex": 31,
+    "weightDelta": 0.314
+  },
+  {
+    "seq": 51,
+    "committeeMemberId": 51,
+    "billsUserId": 206,
+    "action": "CHAIR",
+    "committeeIndex": 214,
+    "weightDelta": 0.504
+  },
+  {
+    "seq": 52,
+    "committeeMemberId": 22,
+    "billsUserId": 73,
+    "action": "CHAIR",
+    "committeeIndex": 59,
+    "weightDelta": 0.339
+  },
+  {
+    "seq": 53,
+    "committeeMemberId": 45,
+    "billsUserId": 134,
+    "action": "CHAIR",
+    "committeeIndex": 62,
+    "weightDelta": 0.382
+  },
+  {
+    "seq": 54,
+    "committeeMemberId": 59,
+    "billsUserId": 262,
+    "action": "LEAVE",
+    "committeeIndex": 184,
+    "weightDelta": 0.687
+  },
+  {
+    "seq": 55,
+    "committeeMemberId": 98,
+    "billsUserId": 122,
+    "action": "CHAIR",
+    "committeeIndex": 1,
+    "weightDelta": 0.807
+  },
+  {
+    "seq": 56,
+    "committeeMemberId": 43,
+    "billsUserId": 96,
+    "action": "JOIN",
+    "committeeIndex": 178,
+    "weightDelta": 0.943
+  },
+  {
+    "seq": 57,
+    "committeeMemberId": 63,
+    "billsUserId": 113,
+    "action": "JOIN",
+    "committeeIndex": 189,
+    "weightDelta": 0.979
+  },
+  {
+    "seq": 58,
+    "committeeMemberId": 161,
+    "billsUserId": 276,
+    "action": "CHAIR",
+    "committeeIndex": 82,
+    "weightDelta": 0.469
+  },
+  {
+    "seq": 59,
+    "committeeMemberId": 102,
+    "billsUserId": 201,
+    "action": "CHAIR",
+    "committeeIndex": 65,
+    "weightDelta": 0.281
+  },
+  {
+    "seq": 60,
+    "committeeMemberId": 268,
+    "billsUserId": 49,
+    "action": "JOIN",
+    "committeeIndex": 306,
+    "weightDelta": 0.186
+  }
+]

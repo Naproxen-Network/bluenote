@@ -1,0 +1,1178 @@
+{
+    "2": {
+        "name": "ERVIN",
+        "affiliation": "Democrat"
+    },
+    "3": {
+        "name": "HRUSKA",
+        "affiliation": "Republican"
+    },
+    "1": {
+        "name": "MCCLELLAN",
+        "affiliation": "Democrat"
+    },
+    "5": {
+        "name": "HUMPHREY",
+        "affiliation": "Democrat"
+    },
+    "4": {
+        "name": "PELL",
+        "affiliation": "Democrat"
+    },
+    "6": {
+        "name": "INOUYE",
+        "affiliation": "Democrat"
+    },
+    "13": {
+        "name": "FONG",
+        "affiliation": "Republican"
+    },
+    "14": {
+        "name": "GOLDWATER",
+        "affiliation": "Republican"
+    },
+    "16": {
+        "name": "THURMOND",
+        "affiliation": "Republican"
+    },
+    "12": {
+        "name": "FANNIN",
+        "affiliation": "Republican"
+    },
+    "15": {
+        "name": "HANSEN",
+        "affiliation": "Republican"
+    },
+    "11": {
+        "name": "DOMINICK",
+        "affiliation": "Republican"
+    },
+    "17": {
+        "name": "TOWER",
+        "affiliation": "Republican"
+    },
+    "7": {
+        "name": "PACKWOOD",
+        "affiliation": "Republican"
+    },
+    "10": {
+        "name": "CURTIS",
+        "affiliation": "Republican"
+    },
+    "8": {
+        "name": "BARTLETT",
+        "affiliation": "Republican"
+    },
+    "9": {
+        "name": "BROCK",
+        "affiliation": "Republican"
+    },
+    "19": {
+        "name": "BURDICK",
+        "affiliation": "Democrat"
+    },
+    "18": {
+        "name": "MCGOVERN",
+        "affiliation": "Democrat"
+    },
+    "20": {
+        "name": "RANDOLPH",
+        "affiliation": "Democrat"
+    },
+    "25": {
+        "name": "MONTOYA",
+        "affiliation": "Democrat"
+    },
+    "27": {
+        "name": "MUSKIE",
+        "affiliation": "Democrat"
+    },
+    "26": {
+        "name": "MOSS",
+        "affiliation": "Democrat"
+    },
+    "30": {
+        "name": "STAFFORD",
+        "affiliation": "Republican"
+    },
+    "28": {
+        "name": "PERCY",
+        "affiliation": "Republican"
+    },
+    "24": {
+        "name": "KENNEDY",
+        "affiliation": "Democrat"
+    },
+    "22": {
+        "name": "CRANSTON",
+        "affiliation": "Democrat"
+    },
+    "23": {
+        "name": "HART",
+        "affiliation": "Democrat"
+    },
+    "31": {
+        "name": "TUNNEY",
+        "affiliation": "Democrat"
+    },
+    "21": {
+        "name": "CASE",
+        "affiliation": "Republican"
+    },
+    "29": {
+        "name": "SCHWEIKER",
+        "affiliation": "Republican"
+    },
+    "37": {
+        "name": "MANSFIELD",
+        "affiliation": "Democrat"
+    },
+    "35": {
+        "name": "HATFIELD",
+        "affiliation": "Republican"
+    },
+    "36": {
+        "name": "JAVITS",
+        "affiliation": "Republican"
+    },
+    "32": {
+        "name": "PEARSON",
+        "affiliation": "Republican"
+    },
+    "33": {
+        "name": "BENNETT",
+        "affiliation": "Republican"
+    },
+    "34": {
+        "name": "DOLE",
+        "affiliation": "Republican"
+    },
+    "39": {
+        "name": "ABOUREZK",
+        "affiliation": "Democrat"
+    },
+    "38": {
+        "name": "JACKSON",
+        "affiliation": "Democrat"
+    },
+    "41": {
+        "name": "DOMENICI",
+        "affiliation": "Republican"
+    },
+    "42": {
+        "name": "HASKELL",
+        "affiliation": "Democrat"
+    },
+    "45": {
+        "name": "NELSON",
+        "affiliation": "Democrat"
+    },
+    "40": {
+        "name": "CHURCH",
+        "affiliation": "Democrat"
+    },
+    "44": {
+        "name": "METZENBAUM",
+        "affiliation": "Democrat"
+    },
+    "43": {
+        "name": "MCCLURE",
+        "affiliation": "Republican"
+    },
+    "46": {
+        "name": "EAGLETON",
+        "affiliation": "Democrat"
+    },
+    "51": {
+        "name": "HUGHES",
+        "affiliation": "Democrat"
+    },
+    "57": {
+        "name": "WILLIAMS",
+        "affiliation": "Democrat"
+    },
+    "50": {
+        "name": "HATHAWAY",
+        "affiliation": "Democrat"
+    },
+    "54": {
+        "name": "PROXMIRE",
+        "affiliation": "Democrat"
+    },
+    "49": {
+        "name": "COTTON",
+        "affiliation": "Republican"
+    },
+    "48": {
+        "name": "BROOKE",
+        "affiliation": "Republican"
+    },
+    "53": {
+        "name": "PASTORE",
+        "affiliation": "Democrat"
+    },
+    "56": {
+        "name": "WEICKER",
+        "affiliation": "Republican"
+    },
+    "52": {
+        "name": "MONDALE",
+        "affiliation": "Democrat"
+    },
+    "47": {
+        "name": "MCINTYRE",
+        "affiliation": "Democrat"
+    },
+    "55": {
+        "name": "RIBICOFF",
+        "affiliation": "Democrat"
+    },
+    "58": {
+        "name": "HARTKE",
+        "affiliation": "Democrat"
+    },
+    "59": {
+        "name": "METCALF",
+        "affiliation": "Democrat"
+    },
+    "60": {
+        "name": "CANNON",
+        "affiliation": "Democrat"
+    },
+    "61": {
+        "name": "TAFT",
+        "affiliation": "Republican"
+    },
+    "62": {
+        "name": "BAYH",
+        "affiliation": "Democrat"
+    },
+    "68": {
+        "name": "GRAVEL",
+        "affiliation": "Democrat"
+    },
+    "70": {
+        "name": "STEVENSON",
+        "affiliation": "Democrat"
+    },
+    "65": {
+        "name": "CHILES",
+        "affiliation": "Democrat"
+    },
+    "63": {
+        "name": "BAKER",
+        "affiliation": "Republican"
+    },
+    "64": {
+        "name": "BIBLE",
+        "affiliation": "Democrat"
+    },
+    "69": {
+        "name": "SCOTT (PA.)",
+        "affiliation": "Republican"
+    },
+    "67": {
+        "name": "COOK",
+        "affiliation": "Republican"
+    },
+    "66": {
+        "name": "CLARK",
+        "affiliation": "Democrat"
+    },
+    "71": {
+        "name": "MATHIAS",
+        "affiliation": "Republican"
+    },
+    "72": {
+        "name": "MAGNUSON",
+        "affiliation": "Democrat"
+    },
+    "74": {
+        "name": "STEVENS",
+        "affiliation": "Republican"
+    },
+    "73": {
+        "name": "JOHNSTON",
+        "affiliation": "Democrat"
+    },
+    "76": {
+        "name": "HOLLINGS",
+        "affiliation": "Democrat"
+    },
+    "75": {
+        "name": "GURNEY",
+        "affiliation": "Republican"
+    },
+    "79": {
+        "name": "ROTH",
+        "affiliation": "Republican"
+    },
+    "77": {
+        "name": "BEALL",
+        "affiliation": "Republican"
+    },
+    "78": {
+        "name": "LONG",
+        "affiliation": "Democrat"
+    },
+    "80": {
+        "name": "MCGEE",
+        "affiliation": "Democrat"
+    },
+    "81": {
+        "name": "Byrd, Robert C. [WV]",
+        "affiliation": "Democrat"
+    },
+    "82": {
+        "name": "HUDDLESTON",
+        "affiliation": "Democrat"
+    },
+    "83": {
+        "name": "ALLEN",
+        "affiliation": "Democrat"
+    },
+    "84": {
+        "name": "TALMADGE",
+        "affiliation": "Democrat"
+    },
+    "87": {
+        "name": "SPARKMAN",
+        "affiliation": "Democrat"
+    },
+    "86": {
+        "name": "SCOTT (VA.)",
+        "affiliation": "Republican"
+    },
+    "85": {
+        "name": "EASTLAND",
+        "affiliation": "Democrat"
+    },
+    "89": {
+        "name": "FULBRIGHT",
+        "affiliation": "Democrat"
+    },
+    "88": {
+        "name": "BELLMON",
+        "affiliation": "Republican"
+    },
+    "90": {
+        "name": "GRIFFIN",
+        "affiliation": "Republican"
+    },
+    "91": {
+        "name": "BIDEN",
+        "affiliation": "Democrat"
+    },
+    "92": {
+        "name": "YOUNG",
+        "affiliation": "Republican"
+    },
+    "93": {
+        "name": "AIKEN",
+        "affiliation": "Republican"
+    },
+    "94": {
+        "name": "BENTSEN",
+        "affiliation": "Democrat"
+    },
+    "95": {
+        "name": "HELMS",
+        "affiliation": "Republican"
+    },
+    "96": {
+        "name": "NUNN",
+        "affiliation": "Democrat"
+    },
+    "97": {
+        "name": "SYMINGTON",
+        "affiliation": "Democrat"
+    },
+    "98": {
+        "name": "STENNIS",
+        "affiliation": "Democrat"
+    },
+    "99": {
+        "name": "SAXBE",
+        "affiliation": "Republican"
+    },
+    "100": {
+        "name": "LAXALT",
+        "affiliation": "Republican"
+    },
+    "103": {
+        "name": "GARN",
+        "affiliation": "Republican"
+    },
+    "101": {
+        "name": "STONE",
+        "affiliation": "Democrat"
+    },
+    "104": {
+        "name": "MORGAN",
+        "affiliation": "Democrat"
+    },
+    "102": {
+        "name": "BUMPERS",
+        "affiliation": "Democrat"
+    },
+    "105": {
+        "name": "LEAHY",
+        "affiliation": "Democrat"
+    },
+    "106": {
+        "name": "HART (COLO.)",
+        "affiliation": "Democrat"
+    },
+    "107": {
+        "name": "CULVER",
+        "affiliation": "Democrat"
+    },
+    "108": {
+        "name": "DURKIN",
+        "affiliation": "Democrat"
+    },
+    "110": {
+        "name": "GLENN",
+        "affiliation": "Democrat"
+    },
+    "109": {
+        "name": "FORD",
+        "affiliation": "Democrat"
+    },
+    "112": {
+        "name": "SCHMITT",
+        "affiliation": "Republican"
+    },
+    "111": {
+        "name": "LUGAR",
+        "affiliation": "Republican"
+    },
+    "113": {
+        "name": "RIEGLE",
+        "affiliation": "Democrat"
+    },
+    "119": {
+        "name": "SARBANES",
+        "affiliation": "Democrat"
+    },
+    "118": {
+        "name": "MELCHER",
+        "affiliation": "Democrat"
+    },
+    "114": {
+        "name": "ANDERSON",
+        "affiliation": "Democrat"
+    },
+    "117": {
+        "name": "MATSUNAGA",
+        "affiliation": "Democrat"
+    },
+    "115": {
+        "name": "HAYAKAWA",
+        "affiliation": "Republican"
+    },
+    "116": {
+        "name": "HUMPHREY (MURIEL)",
+        "affiliation": "Democrat"
+    },
+    "120": {
+        "name": "HEINZ",
+        "affiliation": "Republican"
+    },
+    "121": {
+        "name": "DECONCINI",
+        "affiliation": "Democrat"
+    },
+    "122": {
+        "name": "HATCH",
+        "affiliation": "Republican"
+    },
+    "123": {
+        "name": "DANFORTH",
+        "affiliation": "Republican"
+    },
+    "124": {
+        "name": "WALLOP",
+        "affiliation": "Republican"
+    },
+    "125": {
+        "name": "MOYNIHAN",
+        "affiliation": "Democrat"
+    },
+    "127": {
+        "name": "SASSER",
+        "affiliation": "Democrat"
+    },
+    "126": {
+        "name": "CHAFEE",
+        "affiliation": "Republican"
+    },
+    "128": {
+        "name": "ZORINSKY",
+        "affiliation": "Democrat"
+    },
+    "129": {
+        "name": "HATFIELD (MONT.)",
+        "affiliation": "Democrat"
+    },
+    "130": {
+        "name": "HODGES",
+        "affiliation": "Democrat"
+    },
+    "131": {
+        "name": "ALLEN (MARYON)",
+        "affiliation": "Democrat"
+    },
+    "134": {
+        "name": "LEVIN",
+        "affiliation": "Democrat"
+    },
+    "132": {
+        "name": "BAUCUS",
+        "affiliation": "Democrat"
+    },
+    "133": {
+        "name": "HUMPHREY",
+        "affiliation": "Republican"
+    },
+    "139": {
+        "name": "DURENBERGER",
+        "affiliation": "Republican"
+    },
+    "138": {
+        "name": "COCHRAN",
+        "affiliation": "Republican"
+    },
+    "140": {
+        "name": "PRYOR",
+        "affiliation": "Democrat"
+    },
+    "142": {
+        "name": "STEWART",
+        "affiliation": "Democrat"
+    },
+    "141": {
+        "name": "SIMPSON",
+        "affiliation": "Republican"
+    },
+    "136": {
+        "name": "BOREN",
+        "affiliation": "Democrat"
+    },
+    "135": {
+        "name": "ARMSTRONG",
+        "affiliation": "Republican"
+    },
+    "137": {
+        "name": "BOSCHWITZ",
+        "affiliation": "Republican"
+    },
+    "143": {
+        "name": "TSONGAS",
+        "affiliation": "Democrat"
+    },
+    "144": {
+        "name": "HEFLIN",
+        "affiliation": "Democrat"
+    },
+    "146": {
+        "name": "COHEN",
+        "affiliation": "Republican"
+    },
+    "145": {
+        "name": "BRADLEY",
+        "affiliation": "Democrat"
+    },
+    "147": {
+        "name": "WARNER",
+        "affiliation": "Republican"
+    },
+    "148": {
+        "name": "PRESSLER",
+        "affiliation": "Republican"
+    },
+    "149": {
+        "name": "JEPSEN",
+        "affiliation": "Republican"
+    },
+    "150": {
+        "name": "KASSEBAUM",
+        "affiliation": "Republican"
+    },
+    "151": {
+        "name": "EXON",
+        "affiliation": "Democrat"
+    },
+    "152": {
+        "name": "MITCHELL",
+        "affiliation": "Democrat"
+    },
+    "154": {
+        "name": "GRASSLEY",
+        "affiliation": "Republican"
+    },
+    "155": {
+        "name": "QUAYLE",
+        "affiliation": "Republican"
+    },
+    "156": {
+        "name": "SYMMS",
+        "affiliation": "Republican"
+    },
+    "153": {
+        "name": "DENTON",
+        "affiliation": "Republican"
+    },
+    "159": {
+        "name": "SPECTER",
+        "affiliation": "Republican"
+    },
+    "157": {
+        "name": "KASTEN",
+        "affiliation": "Republican"
+    },
+    "158": {
+        "name": "MURKOWSKI",
+        "affiliation": "Republican"
+    },
+    "160": {
+        "name": "RUDMAN",
+        "affiliation": "Republican"
+    },
+    "161": {
+        "name": "DODD",
+        "affiliation": "Democrat"
+    },
+    "162": {
+        "name": "HAWKINS",
+        "affiliation": "Republican"
+    },
+    "163": {
+        "name": "GORTON",
+        "affiliation": "Republican"
+    },
+    "165": {
+        "name": "ANDREWS (N. D.)",
+        "affiliation": "Republican"
+    },
+    "170": {
+        "name": "NICKLES",
+        "affiliation": "Republican"
+    },
+    "168": {
+        "name": "DIXON",
+        "affiliation": "Democrat"
+    },
+    "166": {
+        "name": "BRADY",
+        "affiliation": "Republican"
+    },
+    "164": {
+        "name": "ABDNOR",
+        "affiliation": "Republican"
+    },
+    "169": {
+        "name": "MATTINGLY",
+        "affiliation": "Republican"
+    },
+    "167": {
+        "name": "D'AMATO",
+        "affiliation": "Republican"
+    },
+    "171": {
+        "name": "EAST",
+        "affiliation": "Republican"
+    },
+    "172": {
+        "name": "TRIBLE",
+        "affiliation": "Republican"
+    },
+    "173": {
+        "name": "BINGAMAN",
+        "affiliation": "Democrat"
+    },
+    "174": {
+        "name": "EVANS",
+        "affiliation": "Republican"
+    },
+    "175": {
+        "name": "HECHT",
+        "affiliation": "Republican"
+    },
+    "176": {
+        "name": "WILSON",
+        "affiliation": "Republican"
+    },
+    "177": {
+        "name": "LAUTENBERG",
+        "affiliation": "Democrat"
+    },
+    "179": {
+        "name": "MCCONNELL",
+        "affiliation": "Republican"
+    },
+    "178": {
+        "name": "GRAMM",
+        "affiliation": "Republican"
+    },
+    "180": {
+        "name": "ROCKEFELLER",
+        "affiliation": "Democrat"
+    },
+    "181": {
+        "name": "GORE",
+        "affiliation": "Democrat"
+    },
+    "182": {
+        "name": "SIMON",
+        "affiliation": "Democrat"
+    },
+    "183": {
+        "name": "KERRY",
+        "affiliation": "Democrat"
+    },
+    "184": {
+        "name": "HARKIN",
+        "affiliation": "Democrat"
+    },
+    "185": {
+        "name": "BROYHILL (N. C.)",
+        "affiliation": "Republican"
+    },
+    "186": {
+        "name": "ADAMS",
+        "affiliation": "Democrat"
+    },
+    "194": {
+        "name": "SANFORD",
+        "affiliation": "Democrat"
+    },
+    "188": {
+        "name": "CONRAD",
+        "affiliation": "Democrat"
+    },
+    "195": {
+        "name": "WIRTH",
+        "affiliation": "Democrat"
+    },
+    "187": {
+        "name": "BOND",
+        "affiliation": "Republican"
+    },
+    "191": {
+        "name": "GRAHAM",
+        "affiliation": "Democrat"
+    },
+    "192": {
+        "name": "MIKULSKI",
+        "affiliation": "Democrat"
+    },
+    "189": {
+        "name": "DASCHLE",
+        "affiliation": "Democrat"
+    },
+    "193": {
+        "name": "REID",
+        "affiliation": "Democrat"
+    },
+    "190": {
+        "name": "FOWLER",
+        "affiliation": "Democrat"
+    },
+    "196": {
+        "name": "BREAUX",
+        "affiliation": "Democrat"
+    },
+    "197": {
+        "name": "KARNES",
+        "affiliation": "Republican"
+    },
+    "199": {
+        "name": "SHELBY",
+        "affiliation": "Democrat"
+    },
+    "198": {
+        "name": "MCCAIN",
+        "affiliation": "Republican"
+    },
+    "200": {
+        "name": "Burns, Conrad R. [MT]",
+        "affiliation": "Republican"
+    },
+    "202": {
+        "name": "LOTT",
+        "affiliation": "Republican"
+    },
+    "201": {
+        "name": "JEFFORDS",
+        "affiliation": "Republican"
+    },
+    "203": {
+        "name": "COATS",
+        "affiliation": "Republican"
+    },
+    "204": {
+        "name": "Kohl, Herb [WI]",
+        "affiliation": "Democrat"
+    },
+    "205": {
+        "name": "Bryan, Richard H. [NV]",
+        "affiliation": "Democrat"
+    },
+    "206": {
+        "name": "Robb, Charles S. [VA]",
+        "affiliation": "Democrat"
+    },
+    "207": {
+        "name": "Kerrey, J. Robert [NE]",
+        "affiliation": "Democrat"
+    },
+    "208": {
+        "name": "MACK",
+        "affiliation": "Republican"
+    },
+    "209": {
+        "name": "Lieberman, Joseph I. [CT]",
+        "affiliation": "Democrat"
+    },
+    "210": {
+        "name": "AKAKA",
+        "affiliation": "Democrat"
+    },
+    "211": {
+        "name": "Burdick, Quentin N. [ND]",
+        "affiliation": "Democrat"
+    },
+    "212": {
+        "name": "BROWN, H.",
+        "affiliation": "Republican"
+    },
+    "213": {
+        "name": "CRAIG",
+        "affiliation": "Republican"
+    },
+    "214": {
+        "name": "SMITH, R.C.",
+        "affiliation": "Republican"
+    },
+    "215": {
+        "name": "Wellstone, Paul D. [MN]",
+        "affiliation": "Democrat"
+    },
+    "216": {
+        "name": "Seymour, John [CA]",
+        "affiliation": "Republican"
+    },
+    "217": {
+        "name": "Wofford, Harris [PA]",
+        "affiliation": "Democrat"
+    },
+    "218": {
+        "name": "BOXER",
+        "affiliation": "Democrat"
+    },
+    "219": {
+        "name": "Moseley-Braun, Carol [IL]",
+        "affiliation": "Democrat"
+    },
+    "221": {
+        "name": "Kempthorne, Dirk [ID]",
+        "affiliation": "Republican"
+    },
+    "220": {
+        "name": "Bennett, Robert F. [UT]",
+        "affiliation": "Republican"
+    },
+    "223": {
+        "name": "GREGG",
+        "affiliation": "Republican"
+    },
+    "222": {
+        "name": "Faircloth, Lauch [NC]",
+        "affiliation": "Republican"
+    },
+    "224": {
+        "name": "CAMPBELL",
+        "affiliation": "Democrat"
+    },
+    "229": {
+        "name": "Murray, Patty [WA]",
+        "affiliation": "Democrat"
+    },
+    "225": {
+        "name": "DORGAN",
+        "affiliation": "Democrat"
+    },
+    "227": {
+        "name": "Feinstein, Dianne [CA]",
+        "affiliation": "Democrat"
+    },
+    "226": {
+        "name": "Feingold, Russell D. [WI]",
+        "affiliation": "Democrat"
+    },
+    "228": {
+        "name": "KRUEGER",
+        "affiliation": "Democrat"
+    },
+    "230": {
+        "name": "Coverdell, Paul [GA]",
+        "affiliation": "Republican"
+    },
+    "231": {
+        "name": "Hutchison, Kay Bailey [TX]",
+        "affiliation": "Republican"
+    },
+    "232": {
+        "name": "Mathews, Harlan [TN]",
+        "affiliation": "Democrat"
+    },
+    "238": {
+        "name": "INHOFE",
+        "affiliation": "Republican"
+    },
+    "234": {
+        "name": "Ashcroft, John [MO]",
+        "affiliation": "Republican"
+    },
+    "242": {
+        "name": "SNOWE",
+        "affiliation": "Republican"
+    },
+    "240": {
+        "name": "Santorum, Rick [PA-18]",
+        "affiliation": "Republican"
+    },
+    "236": {
+        "name": "Frist, Bill [TN]",
+        "affiliation": "Republican"
+    },
+    "239": {
+        "name": "KYL",
+        "affiliation": "Republican"
+    },
+    "241": {
+        "name": "Shelby, Richard C. [AL]",
+        "affiliation": "Republican"
+    },
+    "244": {
+        "name": "Thompson, Fred [TN]",
+        "affiliation": "Republican"
+    },
+    "235": {
+        "name": "DEWINE",
+        "affiliation": "Republican"
+    },
+    "233": {
+        "name": "Abraham, Spencer [MI]",
+        "affiliation": "Republican"
+    },
+    "243": {
+        "name": "Thomas, Craig [WY]",
+        "affiliation": "Republican"
+    },
+    "237": {
+        "name": "Grams, Rod [MN-6]",
+        "affiliation": "Republican"
+    },
+    "245": {
+        "name": "Frahm, Sheila [KS]",
+        "affiliation": "Republican"
+    },
+    "246": {
+        "name": "WYDEN",
+        "affiliation": "Democrat"
+    },
+    "248": {
+        "name": "Hagel, Chuck [NE]",
+        "affiliation": "Republican"
+    },
+    "247": {
+        "name": "Allard, A. Wayne [CO-4]",
+        "affiliation": "Republican"
+    },
+    "249": {
+        "name": "Hutchinson, Tim [AR-3]",
+        "affiliation": "Republican"
+    },
+    "251": {
+        "name": "ROBERTS, P.",
+        "affiliation": "Republican"
+    },
+    "252": {
+        "name": "Sessions, Jeff [AL]",
+        "affiliation": "Republican"
+    },
+    "250": {
+        "name": "Enzi, Michael B. [WY]",
+        "affiliation": "Republican"
+    },
+    "253": {
+        "name": "Brownback, Sam [KS-2]",
+        "affiliation": "Republican"
+    },
+    "255": {
+        "name": "JOHNSON, T.",
+        "affiliation": "Democrat"
+    },
+    "254": {
+        "name": "DURBIN",
+        "affiliation": "Democrat"
+    },
+    "256": {
+        "name": "TORRICELLI",
+        "affiliation": "Democrat"
+    },
+    "258": {
+        "name": "Reed, John F. [RI-2]",
+        "affiliation": "Democrat"
+    },
+    "257": {
+        "name": "Collins, Susan M. [ME]",
+        "affiliation": "Republican"
+    },
+    "259": {
+        "name": "Campbell, Ben Nighthorse [CO]",
+        "affiliation": "Republican"
+    },
+    "260": {
+        "name": "Cleland, Max [GA]",
+        "affiliation": "Democrat"
+    },
+    "261": {
+        "name": "Landrieu, Mary [LA]",
+        "affiliation": "Democrat"
+    },
+    "262": {
+        "name": "Smith, Gordon [OR]",
+        "affiliation": "Republican"
+    },
+    "263": {
+        "name": "Schumer, Charles E. [NY-9]",
+        "affiliation": "Democrat"
+    },
+    "264": {
+        "name": "Crapo, Michael D. [ID-2]",
+        "affiliation": "Republican"
+    },
+    "266": {
+        "name": "Lambert, Blanche M. [AR-1]",
+        "affiliation": "Democrat"
+    },
+    "265": {
+        "name": "Fitzgerald, Peter [IL]",
+        "affiliation": "Republican"
+    },
+    "267": {
+        "name": "Bayh, Evan [IN]",
+        "affiliation": "Democrat"
+    },
+    "270": {
+        "name": "Edwards, John [NC]",
+        "affiliation": "Democrat"
+    },
+    "268": {
+        "name": "BUNNING",
+        "affiliation": "Republican"
+    },
+    "269": {
+        "name": "Chafee, Lincoln D. [RI]",
+        "affiliation": "Republican"
+    },
+    "271": {
+        "name": "Voinovich, George V. [OH]",
+        "affiliation": "Republican"
+    },
+    "272": {
+        "name": "Miller, Zell [GA]",
+        "affiliation": "Democrat"
+    },
+    "277": {
+        "name": "NELSON",
+        "affiliation": "Democrat"
+    },
+    "273": {
+        "name": "Carnahan, Jean [MO]",
+        "affiliation": "Democrat"
+    },
+    "275": {
+        "name": "Corzine, Jon [NJ]",
+        "affiliation": "Democrat"
+    },
+    "276": {
+        "name": "Dayton, Mark [MN]",
+        "affiliation": "Democrat"
+    },
+    "274": {
+        "name": "Clinton, Hillary Rodham [NY]",
+        "affiliation": "Democrat"
+    },
+    "278": {
+        "name": "Stabenow, Debbie [MI-8]",
+        "affiliation": "Democrat"
+    },
+    "279": {
+        "name": "Ensign, John E. [NV-1]",
+        "affiliation": "Republican"
+    },
+    "280": {
+        "name": "Cantwell, Maria [WA-1]",
+        "affiliation": "Democrat"
+    },
+    "281": {
+        "name": "Allen, George [VA-7]",
+        "affiliation": "Republican"
+    },
+    "282": {
+        "name": "Nelson, E. Benjamin [NE]",
+        "affiliation": "Democrat"
+    },
+    "283": {
+        "name": "Barkley, Dean M. [MN]",
+        "affiliation": "Democrat"
+    },
+    "284": {
+        "name": "Pryor, Mark Lunsford [AR]",
+        "affiliation": "Democrat"
+    },
+    "287": {
+        "name": "Coleman, Norm [MN]",
+        "affiliation": "Republican"
+    },
+    "286": {
+        "name": "Chambliss, Saxby [GA-8]",
+        "affiliation": "Republican"
+    },
+    "285": {
+        "name": "Graham, Lindsey O. [SC-3]",
+        "affiliation": "Republican"
+    },
+    "288": {
+        "name": "Alexander, Lamar [TN]",
+        "affiliation": "Republican"
+    },
+    "289": {
+        "name": "Cornyn, John [TX]",
+        "affiliation": "Republican"
+    },
+    "290": {
+        "name": "Dole, Elizabeth H. [NC]",
+        "affiliation": "Republican"
+    },
+    "292": {
+        "name": "Talent, Jim [MO-2]",
+        "affiliation": "Republican"
+    },
+    "291": {
+        "name": "Sununu, John E. [NH-1]",
+        "affiliation": "Republican"
+    },
+    "293": {
+        "name": "Murkowski, Lisa [AK]",
+        "affiliation": "Republican"
+    },
+    "294": {
+        "name": "CARPER",
+        "affiliation": "Democrat"
+    }
+}

@@ -1,0 +1,32 @@
+# Dependencies & build
+node_modules/
+**/target/
+dist/
+
+# Runtime & logs
+logs/
+run/
+*.log
+derby.log
+
+# Nacos server binaries (downloaded by scripts/setup_env.sh)
+infra/nacos/target/
+infra/nacos.tar.gz
+infra/nacos/data/
+infra/nacos/logs/
+
+# OS & editor
+.DS_Store
+._*
+.idea/
+.vscode/
+*.swp
+
+# Env & secrets
+.env
+.env.*
+*.pem
+
+# Temp
+work/
+demo/

@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: lbn-gateway
+  config:
+    import:
+      - optional:nacos:lbn-gateway.yml
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        - id: user-service
+          uri: lb://lbn-user-service
+          predicates:
+            - Path=/api/auth/**,/api/user/**,/api/admin/**
+        - id: post-service
+          uri: lb://lbn-post-service
+          predicates:
+            - Path=/api/post/**
+        - id: recommend-service
+          uri: lb://lbn-recommend-service
+          predicates:
+            - Path=/api/recommend/**,/api/search/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
