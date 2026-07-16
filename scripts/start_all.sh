@@ -5,6 +5,25 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 mkdir -p logs run
 
+if [ ! -f .env ]; then
+  echo "ERROR: Missing .env. Copy .env.example to .env and configure it first."
+  exit 1
+fi
+while IFS='=' read -r name value; do
+  name="${name#${name%%[![:space:]]*}}"
+  name="${name%${name##*[![:space:]]}}"
+  case "$name" in ''|'#'*) continue ;; esac
+  if [[ ! "$name" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]]; then
+    echo "ERROR: Invalid environment variable name in .env: $name"
+    exit 1
+  fi
+  export "$name=$value"
+done < .env
+if [ -z "${LBN_JWT_SECRET:-}" ] || [ "${#LBN_JWT_SECRET}" -lt 32 ]; then
+  echo "ERROR: LBN_JWT_SECRET in .env must contain at least 32 characters."
+  exit 1
+fi
+
 if [ -x /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 export JAVA_HOME="$(/usr/libexec/java_home -v 17 2>/dev/null || echo /opt/homebrew/opt/openjdk@17)"
 export PATH="$JAVA_HOME/bin:$PATH"
@@ -38,6 +57,7 @@ start_jar lbn-gateway            backend/lbn-gateway/target/lbn-gateway.jar     
 start_jar lbn-user-service       backend/lbn-user-service/target/lbn-user-service.jar 8081
 start_jar lbn-post-service       backend/lbn-post-service/target/lbn-post-service.jar 8082
 start_jar lbn-recommend-service  backend/lbn-recommend-service/target/lbn-recommend-service.jar 8083
+start_jar lbn-chat-service       backend/lbn-chat-service/target/lbn-chat-service.jar       8084
 
 echo "==> Starting Node layer-sync service (:9099)"
 ( cd layer-sync-service && nohup node server.js > "$ROOT/logs/layer-sync.log" 2>&1 & echo $! > "$ROOT/run/layer-sync.pid" )

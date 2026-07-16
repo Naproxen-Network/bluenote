@@ -35,6 +35,12 @@ public class UserController {
         return Result.ok(svc.getUser(id));
     }
 
+    /** Exact lookup for friend discovery. Numeric input is an id; other input is a username. */
+    @GetMapping("/lookup")
+    public Result<UserDTO> lookup(@RequestParam String identity) {
+        return Result.ok(svc.findByIdentity(identity));
+    }
+
     /** internal: batch fetch used by recommend/post services via Feign */
     @GetMapping("/batch")
     public Result<List<UserDTO>> batch(@RequestParam("ids") String ids) {

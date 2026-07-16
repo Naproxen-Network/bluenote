@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.littlebluenote.common.Constants;
 import com.littlebluenote.common.JwtUtil;
 import com.littlebluenote.common.dto.UserDTO;
+import com.littlebluenote.user.dto.RegisterBody;
 import com.littlebluenote.user.entity.Admin;
 import com.littlebluenote.user.entity.Follow;
 import com.littlebluenote.user.entity.User;
@@ -13,6 +14,8 @@ import com.littlebluenote.user.mapper.AdminMapper;
 import com.littlebluenote.user.mapper.FollowMapper;
 import com.littlebluenote.user.mapper.UserMapper;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -25,20 +28,30 @@ public class UserBizService {
     private final AdminMapper adminMapper;
     private final FollowMapper followMapper;
     private final StringRedisTemplate redis;
+    private final PasswordEncoder passwordEncoder;
+    private final InitialAvatarService avatarService;
 
     public UserBizService(UserMapper userMapper, AdminMapper adminMapper,
-                          FollowMapper followMapper, StringRedisTemplate redis) {
+                          FollowMapper followMapper, StringRedisTemplate redis,
+                          PasswordEncoder passwordEncoder, InitialAvatarService avatarService) {
         this.userMapper = userMapper;
         this.adminMapper = adminMapper;
         this.followMapper = followMapper;
         this.redis = redis;
+        this.passwordEncoder = passwordEncoder;
+        this.avatarService = avatarService;
     }
 
     // ---- Auth ----
     public Map<String, Object> login(String username, String password) {
-        User u = userMapper.selectOne(new QueryWrapper<User>().eq("username", username));
-        if (u == null || !u.getPassword().equals(password)) {
+        User u = userMapper.selectOne(new QueryWrapper<User>()
+                .eq("username", normalizeUsername(username)));
+        if (u == null || !passwordMatches(password, u.getPassword())) {
             throw new IllegalArgumentException("Invalid username or password");
+        }
+        if (!isBcrypt(u.getPassword())) {
+            u.setPassword(passwordEncoder.encode(password));
+            userMapper.updateById(u); // transparently migrate seeded demo credentials
         }
         String token = JwtUtil.issue(u.getId(), Constants.ROLE_USER);
         // mark online in Redis (7-day session mirror)
@@ -53,8 +66,12 @@ public class UserBizService {
 
     public Map<String, Object> adminLogin(String username, String password) {
         Admin a = adminMapper.selectOne(new QueryWrapper<Admin>().eq("username", username));
-        if (a == null || !a.getPassword().equals(password)) {
+        if (a == null || !passwordMatches(password, a.getPassword())) {
             throw new IllegalArgumentException("Invalid admin credentials");
+        }
+        if (!isBcrypt(a.getPassword())) {
+            a.setPassword(passwordEncoder.encode(password));
+            adminMapper.updateById(a);
         }
         String token = JwtUtil.issue(a.getId(), Constants.ROLE_ADMIN);
         Map<String, Object> m = new HashMap<>();
@@ -64,19 +81,26 @@ public class UserBizService {
         return m;
     }
 
-    public UserDTO register(User u) {
-        if (userMapper.selectOne(new QueryWrapper<User>().eq("username", u.getUsername())) != null) {
+    public UserDTO register(RegisterBody body) {
+        String username = normalizeUsername(body.username());
+        String displayName = body.displayName().strip();
+        String avatarUrl = avatarService.publicUrl(username);
+        if (userMapper.selectOne(new QueryWrapper<User>().eq("username", username)) != null) {
             throw new IllegalArgumentException("Username already exists");
         }
-        // synthetic id above the seeded range
-        Long maxId = userMapper.selectObjs(new QueryWrapper<User>().select("IFNULL(MAX(id),0) as id"))
-                .stream().findFirst().map(o -> Long.valueOf(String.valueOf(o))).orElse(0L);
-        u.setId(maxId + 1);
-        if (u.getAvatar() == null || u.getAvatar().isEmpty()) {
-            u.setAvatar("/avatars/" + u.getId() + ".svg");
+
+        User user = new User();
+        user.setUsername(username);
+        user.setDisplayName(displayName);
+        user.setPassword(passwordEncoder.encode(body.password()));
+        user.setAvatar(avatarUrl);
+        try {
+            // The unique index remains the final authority under concurrent registrations.
+            userMapper.insert(user);
+        } catch (DuplicateKeyException exception) {
+            throw new IllegalArgumentException("Username already exists");
         }
-        userMapper.insert(u);
-        return toDTO(u);
+        return toDTO(user);
     }
 
     // ---- Profile ----
@@ -95,10 +119,30 @@ public class UserBizService {
         return out;
     }
 
+    public UserDTO findByIdentity(String identity) {
+        if (identity == null || identity.isBlank() || identity.strip().length() > 64) {
+            throw new IllegalArgumentException("A valid user id or username is required");
+        }
+        String value = identity.strip();
+        User user;
+        if (value.matches("^[0-9]+$")) {
+            try {
+                long id = Long.parseLong(value);
+                user = id > 0 ? userMapper.selectById(id) : null;
+            } catch (NumberFormatException exception) {
+                user = null;
+            }
+        } else {
+            user = userMapper.selectOne(new QueryWrapper<User>()
+                    .eq("username", value.toLowerCase(Locale.ROOT)));
+        }
+        return user == null ? null : toDTO(user);
+    }
+
     public IPage<User> pageUsers(int page, int size, String keyword) {
         QueryWrapper<User> qw = new QueryWrapper<>();
         if (keyword != null && !keyword.isBlank()) {
-            qw.like("display_name", keyword).or().like("position", keyword)
+            qw.like("username", keyword).or().like("display_name", keyword).or().like("position", keyword)
               .or().like("bio", keyword).or().like("interests", keyword);
         }
         qw.orderByAsc("id");
@@ -168,5 +212,19 @@ public class UserBizService {
             d.setInterests(List.of());
         }
         return d;
+    }
+
+    private boolean passwordMatches(String raw, String stored) {
+        if (raw == null || stored == null) return false;
+        return isBcrypt(stored) ? passwordEncoder.matches(raw, stored) : stored.equals(raw);
+    }
+
+    private boolean isBcrypt(String value) {
+        return value != null && (value.startsWith("$2a$") || value.startsWith("$2b$") || value.startsWith("$2y$"));
+    }
+
+    private String normalizeUsername(String username) {
+        if (username == null || username.isBlank()) return "";
+        return username.strip().toLowerCase(Locale.ROOT);
     }
 }

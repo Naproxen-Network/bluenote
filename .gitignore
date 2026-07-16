@@ -1,7 +1,11 @@
 # Dependencies & build
 node_modules/
 **/target/
+**/.m2/
 dist/
+coverage/
+.nyc_output/
+*.class
 
 # Runtime & logs
 logs/
@@ -18,15 +22,33 @@ infra/nacos/logs/
 # OS & editor
 .DS_Store
 ._*
+Thumbs.db
+Desktop.ini
 .idea/
 .vscode/
+.agents/
+*.iml
 *.swp
 
 # Env & secrets
 .env
 .env.*
+!.env.example
 *.pem
+*.key
+*.p12
+*.jks
 
-# Temp
+# Python caches & local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Temp and extracted archives
 work/
 demo/
+*.tmp
+*.bak
+backend/META-INF/

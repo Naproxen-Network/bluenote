@@ -1,0 +1,62 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: lbn-chat-service
+  config:
+    import:
+      - optional:nacos:lbn-chat-service.yml
+  cloud:
+    nacos:
+      server-addr: "${LBN_NACOS_ADDR:127.0.0.1:8848}"
+      discovery:
+        server-addr: "${LBN_NACOS_ADDR:127.0.0.1:8848}"
+      config:
+        server-addr: "${LBN_NACOS_ADDR:127.0.0.1:8848}"
+        file-extension: yml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "${LBN_DB_URL:jdbc:mysql://127.0.0.1:3306/little_blue_note?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true}"
+    username: ${LBN_DB_USER:root}
+    password: ${LBN_DB_PASSWORD:}
+  data:
+    redis:
+      host: ${LBN_REDIS_HOST:127.0.0.1}
+      port: ${LBN_REDIS_PORT:6379}
+  rabbitmq:
+    host: ${LBN_RABBIT_HOST:127.0.0.1}
+    port: ${LBN_RABBIT_PORT:5672}
+    username: ${LBN_RABBIT_USER:guest}
+    password: ${LBN_RABBIT_PASSWORD:guest}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: auto
+        default-requeue-rejected: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 1
+    locations: classpath:db/migration
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+
+chat:
+  websocket:
+    allowed-origin-patterns: "${LBN_WS_ALLOWED_ORIGINS:http://127.0.0.1:*,http://localhost:*}"
+  message:
+    max-length: 2000
+  outbox:
+    batch-size: 100
+    published-retention-days: 7
+
+logging:
+  level:
+    com.littlebluenote.chat: INFO

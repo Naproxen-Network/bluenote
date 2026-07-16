@@ -26,7 +26,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
     // endpoints that do not require authentication
     private static final List<String> WHITELIST = List.of(
             "/api/auth/login", "/api/auth/register", "/api/auth/admin/login",
-            "/actuator", "/avatars"
+            "/api/user/avatar/", "/actuator", "/avatars", "/ws/chat"
     );
 
     @Override
@@ -47,10 +47,14 @@ public class AuthFilter implements GlobalFilter, Ordered {
             Claims claims = JwtUtil.parse(token);
             String uid = claims.getSubject();
             String role = String.valueOf(claims.get("role"));
-            ServerHttpRequest mutated = request.mutate()
-                    .header(Constants.HEADER_USER_ID, uid)
-                    .header(Constants.HEADER_USER_ROLE, role)
-                    .build();
+            // Never forward caller-supplied identity headers. Only values derived from
+            // the verified JWT are trusted by downstream services.
+            ServerHttpRequest mutated = request.mutate().headers(headers -> {
+                headers.remove(Constants.HEADER_USER_ID);
+                headers.remove(Constants.HEADER_USER_ROLE);
+                headers.set(Constants.HEADER_USER_ID, uid);
+                headers.set(Constants.HEADER_USER_ROLE, role);
+            }).build();
             return chain.filter(exchange.mutate().request(mutated).build());
         } catch (Exception e) {
             return unauthorized(exchange, "invalid token");

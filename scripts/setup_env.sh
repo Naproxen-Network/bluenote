@@ -24,7 +24,7 @@ sleep 8
 echo "==> Downloading Nacos (standalone)"
 NACOS_VER=2.3.2
 mkdir -p infra
-if [ ! -d "infra/nacos" ]; then
+if [ ! -f "infra/nacos/target/nacos-server.jar" ]; then
   curl -fSL "https://github.com/alibaba/nacos/releases/download/${NACOS_VER}/nacos-server-${NACOS_VER}.tar.gz" -o infra/nacos.tar.gz
   tar -xzf infra/nacos.tar.gz -C infra
   rm -f infra/nacos.tar.gz

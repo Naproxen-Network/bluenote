@@ -9,11 +9,11 @@ spring:
       - optional:nacos:lbn-gateway.yml
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      server-addr: "${LBN_NACOS_ADDR:127.0.0.1:8848}"
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: "${LBN_NACOS_ADDR:127.0.0.1:8848}"
       config:
-        server-addr: 127.0.0.1:8848
+        server-addr: "${LBN_NACOS_ADDR:127.0.0.1:8848}"
         file-extension: yml
     gateway:
       discovery:
@@ -32,6 +32,14 @@ spring:
           uri: lb://lbn-recommend-service
           predicates:
             - Path=/api/recommend/**,/api/search/**
+        - id: chat-http-service
+          uri: lb://lbn-chat-service
+          predicates:
+            - Path=/api/chat/**,/api/friends/**,/api/chat-admin/**
+        - id: chat-websocket-service
+          uri: lb:ws://lbn-chat-service
+          predicates:
+            - Path=/ws/chat/**,/ws/chat
       globalcors:
         cors-configurations:
           '[/**]':

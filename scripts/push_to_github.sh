@@ -1,30 +1,38 @@
 #!/usr/bin/env bash
-# Push Little Blue Note to GitHub (requires a Personal Access Token).
-# Usage:
-#   export GH_TOKEN='ghp_your_token_here'
-#   bash scripts/push_to_github.sh
-set -e
-cd "$(dirname "$0")/.."
+# Usage: bash scripts/push_to_github.sh owner/repository [private|public]
+set -euo pipefail
 
-if [ -z "$GH_TOKEN" ]; then
-  echo "ERROR: Set GH_TOKEN to a GitHub Personal Access Token first."
-  echo "Create one at: https://github.com/settings/tokens (scope: repo)"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+
+REPOSITORY="${1:-${GITHUB_REPOSITORY:-}}"
+VISIBILITY="${2:-private}"
+
+if [[ ! "$REPOSITORY" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]; then
+  echo "Usage: bash scripts/push_to_github.sh owner/repository [private|public]"
   exit 1
 fi
-
-eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || true
-
-export GH_TOKEN
-REPO="Naproxen-Network/bluenote"
-git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
-
-if ! gh repo view "$REPO" >/dev/null 2>&1; then
-  echo "Repository $REPO not found."
-  echo "Create it first at https://github.com/new (owner: Naproxen-Network, name: bluenote, no README)."
+if [[ "$VISIBILITY" != "private" && "$VISIBILITY" != "public" ]]; then
+  echo "Visibility must be private or public."
   exit 1
 fi
+command -v git >/dev/null || { echo "Git is required."; exit 1; }
+command -v gh >/dev/null || { echo "GitHub CLI is required: https://cli.github.com/"; exit 1; }
+git rev-parse --is-inside-work-tree >/dev/null
+git rev-parse --verify HEAD >/dev/null || { echo "Create the first commit before pushing."; exit 1; }
+gh auth status >/dev/null
 
-echo "Pushing to $REPO ..."
+git branch -M main
+if ! gh repo view "$REPOSITORY" >/dev/null 2>&1; then
+  gh repo create "$REPOSITORY" "--$VISIBILITY"
+fi
+
+REMOTE_URL="https://github.com/${REPOSITORY}.git"
+if git remote get-url origin >/dev/null 2>&1; then
+  git remote set-url origin "$REMOTE_URL"
+else
+  git remote add origin "$REMOTE_URL"
+fi
+
 git push -u origin main
-
-echo "Done: https://github.com/${REPO}"
+echo "Done: https://github.com/${REPOSITORY}"

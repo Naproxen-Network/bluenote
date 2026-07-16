@@ -1,8 +1,9 @@
 package com.littlebluenote.user.controller;
 
 import com.littlebluenote.common.Result;
-import com.littlebluenote.user.entity.User;
+import com.littlebluenote.user.dto.RegisterBody;
 import com.littlebluenote.user.service.UserBizService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -36,9 +37,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public Result<?> register(@RequestBody User u) {
+    public Result<?> register(@Valid @RequestBody RegisterBody body) {
         try {
-            return Result.ok(svc.register(u));
+            return Result.ok(svc.register(body));
         } catch (IllegalArgumentException e) {
             return Result.error(e.getMessage());
         }
