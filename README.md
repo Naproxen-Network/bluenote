@@ -1,115 +1,115 @@
-# Little Blue Note
+# Little Blue Note（小蓝书）
 
-Little Blue Note is an academic social platform designed for researchers, legal and medical professionals, and knowledge creators. The project uses Spring Cloud microservices, a Vue 3 single-page application, MySQL, Redis, RabbitMQ, and Nacos. It also provides content discovery and search ranking through a multi-layer hypergraph recommendation model.
+Little Blue Note 是一个面向科研、法律、医学和知识创作者的学术社交平台。项目采用 Spring Cloud 微服务、Vue 3 单页应用、MySQL、Redis、RabbitMQ 和 Nacos，并通过多层超图推荐模型提供内容发现与搜索排序。
 
-This version includes a complete bidirectional friendship system and one-to-one real-time chat: conversations can be created and messages can be sent only after a friend request has been accepted. Friend relationships, messages, unread counts, reports, restrictions, and reliable delivery events are all persisted in the database.
+本版本已加入完整的双向好友与一对一实时聊天系统：只有好友申请被接受后才能创建会话和发送消息；好友关系、消息、未读数、举报、封禁和可靠投递事件均持久化到数据库。
 
-## 1. Key Features
+## 一、主要功能
 
-### 1.1 Users and Content
+### 1. 用户与内容
 
-- User registration, standard user login, and a separate administrator login.
-- Usernames may contain only ASCII letters, digits, and underscores; new user avatars automatically display the first two characters of the username.
-- User profiles, avatars, biographies, educational backgrounds, and interest tags.
-- Follow/unfollow support as a one-way relationship independent of friendship.
-- Post publishing, likes, bookmarks, comments, and view-count statistics.
-- Personalized recommendations in Discover, full-text search, and multi-layer hypergraph reranking.
-- Administrator user lists, user search, and platform statistics.
+- 用户注册、普通用户登录、管理员独立登录。
+- 注册用户名仅允许 ASCII 字母、数字和下划线；新用户头像自动显示用户名前两个字符。
+- 个人资料、头像、简介、教育背景和兴趣标签。
+- 关注/取消关注（单向关系，与好友关系相互独立）。
+- 发布帖子、点赞、收藏、评论、浏览量统计。
+- Discover 个性化推荐、全文搜索和多层超图重排。
+- 管理员用户列表、用户检索和平台统计。
 
-### 1.2 Bidirectional Friendships
+### 2. 双向好友
 
-- Send friend requests by user ID or from a user profile, with an optional note of up to 200 characters.
-- Manage incoming requests, outgoing requests, the friend list, and the blocklist separately.
-- Accept, reject, or cancel requests; duplicate operations are handled idempotently.
-- Friendships use a normalized user pair `(smaller user ID, larger user ID)`, and a unique database index ensures that only one relationship can exist between the same two users.
-- Accepting a request and creating a private conversation are completed in the same database transaction.
-- Removing a friend closes the conversation; blocking a user removes the friendship and prevents further interaction.
-- Friendship events are written to an audit table and delivered to the other user through the real-time channel.
+- 根据用户 ID 或个人主页发送好友申请，可附带 200 字以内备注。
+- 收到的申请、发出的申请、好友列表、黑名单分开管理。
+- 接受、拒绝、撤销申请；重复请求采用幂等处理。
+- 好友关系使用规范化用户对 `(较小用户 ID, 较大用户 ID)`，数据库唯一索引保证双方只能存在一条关系。
+- 接受申请与创建私聊会话在同一个数据库事务中完成。
+- 删除好友会关闭会话；拉黑会解除好友关系并禁止继续互动。
+- 好友事件写入审计表，并通过实时通道通知对方。
 
-Friendship state transitions:
+好友状态流转：
 
 ```text
 NONE / REJECTED / CANCELLED / DELETED
-                 │ Send request
+                 │ 发送申请
                  ▼
               PENDING
         ┌────────┼────────┐
-        │Accept  │Reject  │Cancel
+        │接受    │拒绝    │撤销
         ▼        ▼        ▼
      ACCEPTED  REJECTED  CANCELLED
-        │Remove / Block
+        │删除/拉黑
         ▼
       DELETED
 ```
 
-### 1.3 One-to-One Real-Time Chat
+### 3. 一对一实时聊天
 
-- Only users whose friendship status is `ACCEPTED` can start or continue a conversation.
-- STOMP over WebSocket delivers messages, friendship events, read receipts, and typing indicators in real time.
-- Reliable delivery pipeline: HTTP write + database Outbox + RabbitMQ + WebSocket.
-- Each message includes a client-generated idempotency key, so network retries do not create duplicate database records.
-- A 2,000-character limit, empty-message validation, per-minute message rate limiting, and friend-request rate limiting.
-- Conversation list, latest message, unread counts, and cursor-based pagination for message history.
-- Read receipts, message recall within two minutes, and inappropriate-message reporting.
-- Online presence is maintained through Redis TTLs and heartbeats; Redis failures do not interrupt core chat functionality.
-- The frontend reconnects automatically; real-time events missed while offline can be recovered from message history and unread counts.
+- 只有状态为 `ACCEPTED` 的好友可以开启或继续会话。
+- STOMP over WebSocket 实时接收消息、好友事件、已读回执和正在输入状态。
+- HTTP 写入 + 数据库 Outbox + RabbitMQ + WebSocket 的可靠投递链路。
+- 每条消息包含客户端幂等号，网络重试不会重复入库。
+- 2000 字限制、空消息校验、每分钟发送限流、好友申请限流。
+- 会话列表、最近消息、未读数、历史消息游标分页。
+- 消息已读回执、两分钟内撤回、举报不当消息。
+- 在线状态使用 Redis TTL 和心跳维护；Redis 故障不会阻断核心聊天。
+- 前端自动重连；离线期间未收到的实时事件可从消息历史和未读数恢复。
 
-Real-time message delivery flow:
+实时消息链路：
 
 ```mermaid
 sequenceDiagram
-    participant A as Sender Browser
+    participant A as 发送方浏览器
     participant G as Gateway
     participant C as Chat Service
     participant DB as MySQL
     participant MQ as RabbitMQ
-    participant B as Recipient WebSocket
+    participant B as 接收方 WebSocket
     A->>G: POST /api/chat/.../messages
-    G->>C: Trusted user identity after JWT validation
-    C->>DB: Write Message, Unread, and Outbox in one transaction
-    C-->>A: Return the persisted message
-    C->>MQ: Periodically publish Outbox events
-    MQ->>C: Each chat instance consumes from its own queue
+    G->>C: JWT 校验后的可信用户身份
+    C->>DB: 同一事务写入 Message、Unread、Outbox
+    C-->>A: 返回持久化消息
+    C->>MQ: 定时发布 Outbox 事件
+    MQ->>C: 每个聊天实例独立消费队列
     C->>B: /user/queue/messages
     B->>G: PUT read cursor
-    G->>C: Update the read position
+    G->>C: 更新已读位置
     C-->>A: /user/queue/read-events
 ```
 
-### 1.4 Chat Moderation and Database Administration
+### 4. 聊天治理与数据库管理
 
-- The administration dashboard reports active friendships, pending requests, active conversations, messages sent today, open reports, active restrictions, and delivery backlog.
-- Administrators can review and resolve message reports.
-- Administrators can apply `CHAT_BAN` or `FRIEND_BAN` restrictions with an expiration time or as permanent restrictions.
-- Expired restrictions are automatically deactivated by scheduled tasks.
-- The administration dashboard shows database Outbox status, failure reasons, and retry counts, and allows failed events to be retried manually.
-- Successfully published Outbox records are retained for seven days by default and then removed to prevent unbounded table growth.
-- Flyway manages incremental migrations; the complete initialization scripts remain available in `backend/sql`.
-- Foreign keys, unique indexes, check constraints, and transactions preserve consistency across relationships, conversations, and messages.
+- 管理后台统计活跃好友数、待处理申请、活跃会话、今日消息、开放举报、限制数和投递积压。
+- 管理员查看并处理消息举报。
+- 管理员可对用户添加 `CHAT_BAN` 或 `FRIEND_BAN`，支持截止时间和永久限制。
+- 限制到期后定时自动失效。
+- 管理后台查看数据库 Outbox 状态、失败原因和重试次数，并可手动重试失败事件。
+- 已成功发布的 Outbox 默认保留 7 天后清理，避免业务表无限增长。
+- Flyway 管理增量迁移；完整初始化脚本仍保留在 `backend/sql`。
+- 外键、唯一索引、检查约束和事务保证关系、会话与消息的一致性。
 
-## 2. Technical Architecture
+## 二、技术架构
 
-| Technology | Purpose |
+| 技术 | 作用 |
 |---|---|
-| Spring Boot / Spring MVC | REST services for users, posts, recommendations, and chat |
-| Spring Cloud Gateway | Unified entry point, JWT validation, and HTTP/WebSocket routing |
-| Nacos | Service discovery and optional configuration center |
-| OpenFeign | Batch user-profile queries between microservices |
-| MyBatis Plus | Persistence for relationships, conversations, messages, and existing business data |
-| Flyway | Incremental chat database migrations |
-| MySQL 8 | Primary application database: `little_blue_note` |
-| Redis | Recommendation cache, rate limiting, presence, and real-time event deduplication |
-| RabbitMQ | Post events, cross-layer events, and chat Outbox events |
-| STOMP / WebSocket | User-specific real-time message queues |
-| Vue 3 / Pinia / Vue Router | Frontend pages and friendship/chat state management |
-| `@stomp/stompjs` | Browser STOMP client, heartbeats, and automatic reconnection |
-| Node.js layer-sync | Real-time committee-layer synchronization and cross-network updates |
+| Spring Boot / Spring MVC | 用户、帖子、推荐、聊天 REST 服务 |
+| Spring Cloud Gateway | 统一入口、JWT 校验、HTTP/WebSocket 路由 |
+| Nacos | 服务发现和可选配置中心 |
+| OpenFeign | 微服务间用户资料批量查询 |
+| MyBatis Plus | 关系、会话、消息及现有业务数据持久化 |
+| Flyway | 聊天数据库增量迁移 |
+| MySQL 8 | 主业务数据库 `little_blue_note` |
+| Redis | 推荐缓存、限流、在线状态、实时事件去重 |
+| RabbitMQ | 帖子事件、跨层事件、聊天 Outbox 事件 |
+| STOMP / WebSocket | 用户专属实时消息队列 |
+| Vue 3 / Pinia / Vue Router | 前端页面、好友状态和聊天状态管理 |
+| `@stomp/stompjs` | 浏览器 STOMP 客户端、心跳和自动重连 |
+| Node.js layer-sync | 委员会层实时同步与跨网络更新 |
 
-Service ports:
+服务端口：
 
-| Port | Service |
+| 端口 | 服务 |
 |---:|---|
-| 5173 | Vue frontend |
+| 5173 | Vue 前端 |
 | 8080 | Spring Cloud Gateway |
 | 8081 | User Service |
 | 8082 | Post Service |
@@ -117,171 +117,171 @@ Service ports:
 | 8084 | Chat Service |
 | 9099 | Node layer-sync |
 | 8848 / 9848 | Nacos HTTP / gRPC |
-| 3307 | MySQL (Docker-mapped port; 3306 inside the container) |
+| 3307 | MySQL（Docker 映射端口；容器内为 3306） |
 | 6379 | Redis |
-| 5672 / 15672 | RabbitMQ / Management Console |
+| 5672 / 15672 | RabbitMQ / 管理控制台 |
 
-## 3. Project Directory Structure
+## 三、项目文件夹作用
 
 ```text
 bluenote-main/
-├─ .github/workflows/ci.yml           GitHub Actions backend tests and frontend build
-├─ backend/                            Java backend Maven multi-module project
-│  ├─ lbn-common/                      Shared Result, UserDTO, JWT, request headers, and MQ constants
-│  ├─ lbn-gateway/                     JWT authentication, trusted identity-header injection, HTTP/WS routing
-│  ├─ lbn-user-service/                Registration, login, profiles, follows, and user/admin APIs
-│  ├─ lbn-post-service/                Posts, comments, likes, bookmarks, and post events
-│  ├─ lbn-recommend-service/           Recommendations, search, Redis cache, and hypergraph model loading
-│  ├─ lbn-chat-service/                Friends, conversations, messages, WebSocket, Outbox, and moderation
-│  └─ sql/                             Full schema.sql and demonstration seed.sql
-├─ frontend/                           Vue 3 + Vite frontend
-│  ├─ src/api/                         Axios instance, JWT request interception, and 401 handling
-│  ├─ src/components/                  Reusable components such as post components
-│  ├─ src/realtime/                    STOMP WebSocket connection, subscriptions, reconnection, and typing events
-│  ├─ src/router/                      Page routes and user/admin authorization guards
-│  ├─ src/store/                       Pinia stores for auth, friends, and chat
-│  ├─ src/styles/                      Global theme and base component styles
-│  └─ src/views/                       Login, Discover, search, friends, messages, profile, and admin pages
-├─ layer-sync-service/                 Node.js committee-layer synchronization service
+├─ .github/workflows/ci.yml           GitHub Actions 后端测试与前端构建
+├─ backend/                         Java 后端 Maven 多模块工程
+│  ├─ lbn-common/                  公共 Result、UserDTO、JWT、请求头和 MQ 常量
+│  ├─ lbn-gateway/                 JWT 认证、可信身份头注入、HTTP/WS 路由
+│  ├─ lbn-user-service/            登录注册、资料、关注、用户和管理员接口
+│  ├─ lbn-post-service/            帖子、评论、点赞、收藏和帖子事件
+│  ├─ lbn-recommend-service/       推荐、搜索、Redis 缓存和超图模型读取
+│  ├─ lbn-chat-service/            好友、会话、消息、WebSocket、Outbox、治理
+│  └─ sql/                         全量 schema.sql 与演示 seed.sql
+├─ frontend/                       Vue 3 + Vite 前端
+│  ├─ src/api/                     Axios 实例、JWT 请求拦截和 401 处理
+│  ├─ src/components/              帖子等复用组件
+│  ├─ src/realtime/                STOMP WebSocket 连接、订阅、重连、输入事件
+│  ├─ src/router/                  页面路由和用户/管理员权限守卫
+│  ├─ src/store/                   auth、friend、chat 三类 Pinia 状态
+│  ├─ src/styles/                  全局主题和基础组件样式
+│  └─ src/views/                   登录、发现、搜索、好友、消息、资料和后台页面
+├─ layer-sync-service/             Node.js 委员会层同步服务
 ├─ data/
-│  ├─ raw/                             Raw Senate bills / committees data
-│  └─ generated/                       Generated users, posts, recommendation models, and committee events
+│  ├─ raw/                         原始 Senate bills / committees 数据
+│  └─ generated/                   用户、帖子、推荐模型和委员会事件数据
 ├─ infra/
-│  ├─ docker-compose.yml               Reproducible MySQL, Redis, RabbitMQ, and Nacos orchestration
-│  └─ nacos/                           Local Nacos distribution for use without Docker
+│  ├─ docker-compose.yml           MySQL、Redis、RabbitMQ、Nacos 可复现编排
+│  └─ nacos/                       本地 Nacos 发行文件（无 Docker 时可用）
 ├─ scripts/
-│  ├─ setup_env.sh                     First-time macOS environment setup
-│  ├─ start_all.sh / stop_all.sh       macOS startup and shutdown scripts
-│  ├─ start_all.ps1 / stop_all.ps1     One-command Windows startup and shutdown scripts
-│  ├─ status_all.ps1                   Windows service status check
-│  ├─ push_to_github.ps1/.sh           Safely create or connect to a remote repository and push
-│  ├─ realtime_chat_smoke.mjs          Two-user HTTP + STOMP end-to-end real-time smoke test
-│  ├─ chat_acceptance.mjs              Complete friendship, chat, moderation, and authorization acceptance test
-│  ├─ prepare_data.py                  Data preparation and recommendation-signal precomputation
-│  ├─ gen_sql.py                       Generate demonstration-data SQL
-│  └─ fetch_avatars.py                 Fill in missing avatars
-├─ .env.example                        Infrastructure and service environment-variable template
-├─ .gitattributes                      Cross-platform line-ending and binary-file rules
-├─ .gitignore                          Excludes dependencies, build artifacts, logs, and local secrets
-└─ README.md                           This document
+│  ├─ setup_env.sh                 macOS 首次环境安装
+│  ├─ start_all.sh / stop_all.sh   macOS 启停脚本
+│  ├─ start_all.ps1 / stop_all.ps1 Windows 一键启停脚本
+│  ├─ status_all.ps1               Windows 服务状态检查
+│  ├─ push_to_github.ps1/.sh       安全创建或连接远程仓库并推送
+│  ├─ realtime_chat_smoke.mjs      双用户 HTTP + STOMP 端到端实时冒烟测试
+│  ├─ chat_acceptance.mjs           好友、聊天、治理和权限完整验收脚本
+│  ├─ prepare_data.py              数据准备与推荐信号预计算
+│  ├─ gen_sql.py                   生成演示数据 SQL
+│  └─ fetch_avatars.py             头像补全
+├─ .env.example                    基础设施和服务环境变量模板
+├─ .gitattributes                  跨平台换行与二进制文件规则
+├─ .gitignore                      排除依赖、构建产物、日志和本地密钥
+└─ README.md                       本文档
 ```
 
-### Internal Structure of `lbn-chat-service`
+### `lbn-chat-service` 内部结构
 
-| Directory | Purpose |
+| 目录 | 作用 |
 |---|---|
-| `config` | MyBatis, Redis, RabbitMQ, WebSocket, and heartbeat configuration |
-| `controller` | Friend, chat, and administrator REST APIs |
-| `dto` | Validated request objects |
-| `entity` | Friendship, conversation, message, report, restriction, and Outbox entities |
-| `exception` | Unified business exceptions and HTTP error responses |
-| `mapper` | MyBatis Plus mappers, row locks, and atomic-update SQL |
-| `mq` | Outbox publishing and RabbitMQ real-time event consumption |
-| `service` | Friendship state machine, chat rules, moderation, rate limiting, and maintenance tasks |
-| `util` | Normalized friendship user pairs and message-input policies |
-| `websocket` | User principals, presence, and typing-status controller |
-| `resources/db/migration` | Flyway V2 friendship/chat tables and V3 user-ID concurrency hardening |
-| `src/test` | Friendship boundary, message validation, and real-time delivery deduplication tests |
+| `config` | MyBatis、Redis、RabbitMQ、WebSocket 和心跳配置 |
+| `controller` | 好友、聊天和管理员 REST 接口 |
+| `dto` | 参数校验后的请求对象 |
+| `entity` | 好友、会话、消息、举报、限制和 Outbox 实体 |
+| `exception` | 统一业务异常及 HTTP 错误返回 |
+| `mapper` | MyBatis Plus Mapper、行锁和原子更新 SQL |
+| `mq` | Outbox 发布和 RabbitMQ 实时事件消费 |
+| `service` | 好友状态机、聊天规则、治理、限流、维护任务 |
+| `util` | 好友规范化用户对和消息输入策略 |
+| `websocket` | 用户 Principal、在线状态、输入状态控制器 |
+| `resources/db/migration` | Flyway V2 好友聊天表、V3 用户 ID 并发加固 |
+| `src/test` | 好友边界、消息校验和实时投递去重测试 |
 
-## 4. Chat Database Tables
+## 四、聊天数据库表
 
-| Table | Purpose and Key Constraints |
+| 表名 | 作用与关键约束 |
 |---|---|
-| `lbn_friend_relation` | Bidirectional friendship; unique normalized user pair; includes status and optimistic-lock version |
-| `lbn_friend_event` | Audit log for requests, acceptance, rejection, removal, and blocking |
-| `lbn_user_block` | One-way blocklist; unique blocker-blocked-user pair |
-| `lbn_conversation` | One unique private conversation per friendship |
-| `lbn_conversation_member` | Two members, unread count, read cursor, and pinned/muted state |
-| `lbn_message` | Text message, client idempotency key, reply target, and recall status |
-| `lbn_chat_outbox` | Reliable events written within business transactions, including publish status, retries, and errors |
-| `lbn_user_chat_restriction` | Administrator restrictions on chat/friend functionality and their validity periods |
-| `lbn_chat_report` | User message reports, handler, outcome, and resolution time |
+| `lbn_friend_relation` | 双向好友关系；规范化用户对唯一；带状态和乐观锁版本 |
+| `lbn_friend_event` | 申请、接受、拒绝、删除、拉黑审计日志 |
+| `lbn_user_block` | 单向黑名单；拉黑人与被拉黑人唯一 |
+| `lbn_conversation` | 一段好友关系对应唯一私聊会话 |
+| `lbn_conversation_member` | 两名成员、未读数、已读游标、置顶/静音状态 |
+| `lbn_message` | 文本消息、客户端幂等号、回复目标、撤回状态 |
+| `lbn_chat_outbox` | 业务事务内可靠事件，记录发布状态、重试和错误 |
+| `lbn_user_chat_restriction` | 管理员聊天/好友功能限制及有效期 |
+| `lbn_chat_report` | 用户消息举报、处理人、结果和处理时间 |
 
-Do not rerun `schema.sql` in an environment that already contains data, because it is a full rebuild script. Existing databases should be upgraded through the incremental Flyway migrations executed when Chat Service starts.
+不要在已经存在数据的环境中重新执行 `schema.sql`，因为它是全量重建脚本。已有数据库应由 Chat Service 启动时运行 Flyway 增量迁移。
 
-## 5. Key APIs
+## 五、关键接口
 
-### Friend APIs
+### 好友接口
 
-| Method | Path | Description |
+| 方法 | 路径 | 说明 |
 |---|---|---|
-| POST | `/api/friends/requests` | Send a friend request |
-| GET | `/api/friends/requests/incoming` | List incoming requests |
-| GET | `/api/friends/requests/outgoing` | List outgoing requests |
-| POST | `/api/friends/requests/{id}/accept` | Accept a request and create a conversation |
-| POST | `/api/friends/requests/{id}/reject` | Reject a request |
-| POST | `/api/friends/requests/{id}/cancel` | Cancel a request |
-| GET | `/api/friends` | List friends |
-| GET | `/api/friends/{userId}/status` | Get the relationship status with a specific user |
-| DELETE | `/api/friends/{userId}` | Remove a friend and close the conversation |
-| POST/DELETE | `/api/friends/{userId}/block` | Block/unblock a user |
+| POST | `/api/friends/requests` | 发送好友申请 |
+| GET | `/api/friends/requests/incoming` | 收到的申请 |
+| GET | `/api/friends/requests/outgoing` | 发出的申请 |
+| POST | `/api/friends/requests/{id}/accept` | 接受并创建会话 |
+| POST | `/api/friends/requests/{id}/reject` | 拒绝申请 |
+| POST | `/api/friends/requests/{id}/cancel` | 撤销申请 |
+| GET | `/api/friends` | 好友列表 |
+| GET | `/api/friends/{userId}/status` | 与指定用户的关系状态 |
+| DELETE | `/api/friends/{userId}` | 删除好友并关闭会话 |
+| POST/DELETE | `/api/friends/{userId}/block` | 拉黑/解除拉黑 |
 
-### Chat APIs
+### 聊天接口
 
-| Method | Path | Description |
+| 方法 | 路径 | 说明 |
 |---|---|---|
-| POST | `/api/chat/conversations/private/{friendId}` | Start or retrieve a private conversation with a friend |
-| GET | `/api/chat/conversations` | List conversations and unread counts |
-| GET | `/api/chat/conversations/{id}/messages` | Retrieve message history using the `beforeId` cursor |
-| POST | `/api/chat/conversations/{id}/messages` | Send an idempotent message |
-| PUT | `/api/chat/conversations/{id}/read` | Update the read cursor |
-| POST | `/api/chat/messages/{id}/recall` | Recall a message within two minutes |
-| POST | `/api/chat/messages/{id}/report` | Report a message |
-| GET | `/api/chat/presence?ids=1,2` | Query presence for multiple users |
+| POST | `/api/chat/conversations/private/{friendId}` | 开启或获取好友会话 |
+| GET | `/api/chat/conversations` | 会话列表和未读数 |
+| GET | `/api/chat/conversations/{id}/messages` | `beforeId` 游标历史消息 |
+| POST | `/api/chat/conversations/{id}/messages` | 发送幂等消息 |
+| PUT | `/api/chat/conversations/{id}/read` | 更新已读游标 |
+| POST | `/api/chat/messages/{id}/recall` | 两分钟内撤回 |
+| POST | `/api/chat/messages/{id}/report` | 举报消息 |
+| GET | `/api/chat/presence?ids=1,2` | 批量查询在线状态 |
 
-The WebSocket endpoint is `/ws/chat`. The client sends `Authorization: Bearer <JWT>` in the STOMP `CONNECT` frame. A user may subscribe only to their own `/user/queue/*` destinations and may send typing-status events only to `/app/chat/typing`.
+WebSocket 端点为 `/ws/chat`。客户端在 STOMP `CONNECT` 帧传入 `Authorization: Bearer <JWT>`，仅允许订阅自己的 `/user/queue/*`，仅允许向 `/app/chat/typing` 发送输入状态。
 
-## 6. Environment Configuration
+## 六、环境配置
 
-Copy `.env.example` and replace all default passwords and JWT secrets in shared or production environments. The Java services support the following environment variables:
+复制 `.env.example` 并在共享或生产环境替换所有默认密码与 JWT 密钥。Java 服务支持以下环境变量：
 
-- `LBN_DB_URL`, `LBN_DB_USER`, `LBN_DB_PASSWORD`
-- `LBN_REDIS_HOST`, `LBN_REDIS_PORT`
-- `LBN_RABBIT_HOST`, `LBN_RABBIT_PORT`, `LBN_RABBIT_USER`, `LBN_RABBIT_PASSWORD`
+- `LBN_DB_URL`、`LBN_DB_USER`、`LBN_DB_PASSWORD`
+- `LBN_REDIS_HOST`、`LBN_REDIS_PORT`
+- `LBN_RABBIT_HOST`、`LBN_RABBIT_PORT`、`LBN_RABBIT_USER`、`LBN_RABBIT_PASSWORD`
 - `LBN_NACOS_ADDR`
-- `LBN_JWT_SECRET` (required; at least 32 UTF-8 bytes; the value must be identical across all services that issue or validate JWTs)
-- `LBN_WS_ALLOWED_ORIGINS` (comma-separated WebSocket origin patterns)
+- `LBN_JWT_SECRET`（必填，至少 32 个 UTF-8 字节；所有签发和校验 JWT 的服务必须完全一致）
+- `LBN_WS_ALLOWED_ORIGINS`（逗号分隔的 WebSocket Origin pattern）
 
-## 7. Running the Project
+## 七、启动方式
 
-### One-Command Windows Startup (Recommended)
+### Windows 一键启动（推荐）
 
-Ensure that Docker Desktop, JDK 17+, Maven, and Node.js are installed, and prepare the `.env` file. Run the following command from the project root:
+确保 Docker Desktop、JDK 17+、Maven、Node.js 已安装，并已准备 `.env`。在项目根目录执行：
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File .\scripts\start_all.ps1
 ```
 
-The script automatically starts Docker Desktop if it is not already running, followed by MySQL, Redis, RabbitMQ, Nacos, the five Java services, layer-sync, and the Vue frontend. It then verifies the login API. Repeated execution does not restart services whose ports are already in use.
+该脚本会自动启动 Docker Desktop（如尚未运行）、MySQL、Redis、RabbitMQ、Nacos、五个 Java 服务、layer-sync 和 Vue 前端，并在最后验证登录接口。重复执行不会重复启动已经占用端口的服务。
 
-Check the status of all services:
+检查全部服务状态：
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File .\scripts\status_all.ps1
 ```
 
-Stop application processes while keeping infrastructure services such as the database running:
+停止应用进程但保留数据库等基础设施：
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File .\scripts\stop_all.ps1
 ```
 
-Stop the Docker infrastructure as well while preserving data volumes:
+同时停止 Docker 基础设施（保留数据卷）：
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File .\scripts\stop_all.ps1 -StopInfrastructure
 ```
 
-### Option A: Start Infrastructure with Docker
+### 方式 A：Docker 启动基础设施
 
-Docker Desktop / Docker Engine, JDK 17+, Maven, and Node.js are required.
+需要 Docker Desktop / Docker Engine 与 JDK 17+、Maven、Node.js。
 
 ```powershell
 Copy-Item .env.example .env
 docker compose --env-file .env -f infra/docker-compose.yml up -d
 ```
 
-Load the same variables from `.env` into the terminal used to start the Java services, then build the project:
+将 `.env` 中相同的变量加载到启动 Java 服务的终端，然后构建：
 
 ```powershell
 cd backend
@@ -291,89 +291,89 @@ npm install
 npm run dev
 ```
 
-Each backend module can be started by running its corresponding `target/*.jar` file. First verify that Nacos, MySQL, Redis, and RabbitMQ are healthy, then start the services on ports 8081–8084 and finally the gateway on port 8080.
+后端服务可分别执行各模块 `target/*.jar`。先确认 Nacos、MySQL、Redis、RabbitMQ 健康，再启动 8081–8084 服务和 8080 网关。
 
-The Docker MySQL initialization scripts run only when the data volume is created for the first time. Do not remove the `lbn_mysql_data` volume when existing data must be preserved.
+Docker 的 MySQL 初始化脚本只会在数据卷第一次创建时执行。需要保留数据时不要删除 `lbn_mysql_data` 卷。
 
-### Option B: Use Existing Local Infrastructure
+### 方式 B：已有本地基础设施
 
-When local MySQL, Redis, RabbitMQ, and Nacos instances use their default ports, configure the appropriate credentials and build and start the project directly. On macOS, you may also continue to use:
+本地 MySQL、Redis、RabbitMQ 和 Nacos 使用默认端口时，可设置相应账号密码后直接构建启动。macOS 也可继续使用：
 
 ```bash
 bash scripts/setup_env.sh
 bash scripts/start_all.sh
 ```
 
-Demonstration accounts:
+演示账号：
 
-| Role | Username | Password |
+| 角色 | 用户名 | 密码 |
 |---|---|---|
-| Standard User A | `mcclellan` | `lbn123456` |
-| Standard User B | `ervin` | `lbn123456` |
-| Administrator | `admin` | `admin123` |
+| 普通用户 A | `mcclellan` | `lbn123456` |
+| 普通用户 B | `ervin` | `lbn123456` |
+| 管理员 | `admin` | `admin123` |
 
-Plaintext demonstration passwords in the seed data are automatically migrated to BCrypt after the first successful login. Newly registered accounts are always stored using BCrypt.
+种子数据中的明文演示密码会在首次成功登录后自动迁移为 BCrypt；新注册账号始终使用 BCrypt 保存。
 
-## 8. Testing and Acceptance
+## 八、测试与验收
 
-### Backend Automated Tests
+### 后端自动化测试
 
 ```powershell
 cd backend
 mvn test
 ```
 
-Test coverage includes:
+测试覆盖：
 
-- Bidirectional normalization of friendship user pairs, self-friend rejection, and invalid-member rejection.
-- Client message idempotency keys, empty text, length limits, and Unicode boundaries.
-- RabbitMQ event delivery to a specified user's private queue.
-- Suppression of repeated delivery for the same Outbox event.
-- JWT-authenticated STOMP `CONNECT`, private-queue subscription, and message-frame round trips on a random real port.
+- 好友用户对双向规范化、自好友与非法成员拒绝。
+- 消息客户端幂等号、空文本、长度和 Unicode 边界。
+- RabbitMQ 事件投递到指定用户私有队列。
+- 相同 Outbox 事件重复投递抑制。
+- 在随机真实端口上完成 JWT STOMP CONNECT、私有队列订阅与消息帧往返。
 
-### Frontend Production Build
+### 前端生产构建
 
 ```powershell
 cd frontend
 npm run build
 ```
 
-### Two-User Real-Time End-to-End Smoke Test
+### 双用户实时端到端冒烟测试
 
-Start all infrastructure, backend services, and the gateway first, then run:
+先启动所有基础设施、后端服务与网关，然后执行：
 
 ```powershell
 node scripts/realtime_chat_smoke.mjs
 ```
 
-The script automatically performs the following flow: log in two users → establish or reuse a friendship → establish STOMP connections for both users → User A persists and sends a message → User B receives the same message in real time → User B updates the read cursor → User A receives the read receipt in real time. Successful output resembles:
+脚本会自动完成：两个用户登录 → 建立或复用好友关系 → 两端建立 STOMP 连接 → A 持久化发送消息 → B 实时收到相同消息 → B 更新已读 → A 实时收到已读回执。成功输出类似：
 
 ```text
 PASS conversation=1 message=1 sender=1 recipient=2
 ```
 
-Use `LBN_SMOKE_HTTP`, `LBN_SMOKE_WS`, `LBN_SMOKE_USER_A/B`, and `LBN_SMOKE_PASSWORD_A/B` to override test endpoints and account credentials.
+可用 `LBN_SMOKE_HTTP`、`LBN_SMOKE_WS`、`LBN_SMOKE_USER_A/B`、`LBN_SMOKE_PASSWORD_A/B` 覆盖测试地址和账号。
 
-### Complete Friendship and Chat Acceptance Test
+### 完整好友与聊天验收
 
 ```powershell
 node scripts/chat_acceptance.mjs
 ```
 
-This script uses three standard user accounts and one administrator account to verify that non-friends cannot chat, friendships can be re-established, messages are delivered in real time, unread counts are correct, operations are idempotent, unauthorized access is prevented, read receipts work, messages can be recalled, reports can be resolved, chat bans can be applied and removed, and database Outbox events can be managed. A successful test prints `PASS checks=33 ...`.
+该脚本使用三个普通账号和一个管理员账号，验证无好友禁止聊天、重新加好友、实时送达、未读数、幂等、防越权、已读回执、撤回、举报处理、聊天禁言、解除限制以及数据库 Outbox 管理。测试成功会输出 `PASS checks=33 ...`。
 
-## 9. Security and Consistency Highlights
+## 九、安全与一致性要点
 
-- The gateway first removes any client-provided `X-User-Id` and `X-User-Role` headers, then writes the identity parsed from the JWT to prevent identity-header spoofing.
-- The WebSocket handshake does not trust query parameters; identity is validated again in the STOMP `CONNECT` frame.
-- Users cannot subscribe to another user's queue or bypass REST business validation by sending messages through WebSocket.
-- Friend-request acceptance, conversation creation, message writes, unread-count updates, and Outbox writes use database transactions.
-- Unique relationship indexes, unique message idempotency indexes, and row locks handle duplicate submissions and concurrent operations.
-- Message content is rendered as text in Vue to prevent direct HTML injection.
-- Redis rate limiting uses a fail-open strategy: cache failures do not cause core data loss, and database rules remain effective.
-- RabbitMQ delivery uses Publisher Confirms, dead-letter queues, exponential backoff, and database retry records.
-- Each Chat Service instance declares its own auto-delete queue so that every local STOMP broker receives events during horizontal scaling; Redis deduplication keys include the instance ID.
+- 网关先删除客户端传入的 `X-User-Id` / `X-User-Role`，再写入 JWT 解析结果，防止身份头伪造。
+- WebSocket 握手不信任查询参数；身份在 STOMP CONNECT 帧中再次校验。
+- 用户不能订阅他人的队列，也不能通过 WebSocket 绕过 REST 业务校验发送消息。
+- 好友接受、会话创建、消息写入、未读更新和 Outbox 写入使用数据库事务。
+- 关系唯一索引、消息幂等唯一索引和行锁处理重复提交与并发操作。
+- 消息内容在 Vue 中按文本渲染，避免直接注入 HTML。
+- Redis 限流采用故障开放策略，缓存故障不会造成核心数据丢失；数据库规则仍然有效。
+- RabbitMQ 投递采用 Publisher Confirm、死信队列、指数退避和数据库重试记录。
+- 每个 Chat Service 实例声明独立自动删除队列，使水平扩容时每个本地 STOMP Broker 都能获得事件；Redis 去重键包含实例 ID。
 
 ## License
 
-Academic / demonstration project. The Senate data comes from a publicly available congressional hypergraph dataset.
+Academic / demonstration project. Senate 数据来自公开的国会超图数据集。
